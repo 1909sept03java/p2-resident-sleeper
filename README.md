@@ -1,4 +1,4 @@
-# p2-resident-sleeper
+# Resident Sleeper Team!
 
 ## Project Blurb
 
