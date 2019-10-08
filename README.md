@@ -1,5 +1,10 @@
 # p2-resident-sleeper
 
+## Project Blurb
+
+> Our team intends to build a marketplace platform where users can play various games and earn credits/currency while they play.
+> The platform also lets users buy, sell, or trade items that should enhance their gaming experience.
+
 ## Members
 
 * [Ambiorix Cruz Angeles](https://github.com/1909sept03java/ambiorix-cruzangeles "The Captain")
