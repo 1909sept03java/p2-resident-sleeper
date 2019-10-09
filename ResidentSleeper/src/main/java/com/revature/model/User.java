@@ -8,9 +8,8 @@ public class User {
 	private String email;
 	private String firstname;
 	private String lastname;
-	// private image; // the image of the users avatar
+	private String avatarFilename; // the filename of the users avatar image
 	private int coins; // amount of coins saved up from playing games
-	private int ranking; // based on coins, highest amount of coins is rank 1
 	private int minutes; // total time spent playing games in minutes
 
 }
