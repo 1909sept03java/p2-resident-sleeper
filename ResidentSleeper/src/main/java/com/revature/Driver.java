@@ -1,9 +1,13 @@
 package com.revature;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import com.revature.model.Credential;
 import com.revature.model.Item;
 import com.revature.model.Player;
 import com.revature.model.PlayerItem;
+import com.revature.service.ConnectionService;
 
 public class Driver {
 
@@ -12,9 +16,10 @@ public class Driver {
 		// System.out.println("Hello!");
 		
 		// creating a session factory and a session object for testing
+		// using the session factory also creates the tables in the DB
 		// SessionFactory sf = ConnectionService.getSessionFactory();
-		// Session s = sf.openSession();
-		// s.close();
+		// Session sess = sf.openSession();
+		// sess.close();
 		
 		// creating rex with 100 coins and 0 minutes play time
 		Player rex = new Player(1,"rex@example.com", "rex", "cruz", "rex.png", 100, 0);

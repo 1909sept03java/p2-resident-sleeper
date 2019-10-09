@@ -17,6 +17,7 @@
 		<!-- where are the mapped beans? -->
 		<mapping class="com.revature.model.Credential" />
 		<mapping class="com.revature.model.Player" />
+		<mapping class="com.revature.model.PlayerItem" />
 		<mapping class="com.revature.model.Item" />
 	</session-factory>
 </hibernate-configuration>
