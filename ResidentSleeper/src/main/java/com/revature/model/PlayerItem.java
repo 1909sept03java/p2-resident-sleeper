@@ -1,12 +1,14 @@
 package com.revature.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,7 +20,7 @@ public class PlayerItem {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "playerItemSequence")
 	@SequenceGenerator(allocationSize = 1, name = "playerItemSequence", sequenceName = "SQ_PLAYER_ITEM_PK")
 	@Column(name = "PLAYER_ITEM_ID")
-	private int playerItemId; // primary key for the item table
+	private int playerItemId; // primary key for the player item table
 	@Column(name = "NAME")
 	private String name; // name of the item
 	@Column(name = "VALUE")
@@ -27,7 +29,7 @@ public class PlayerItem {
 	private String itemFilename; // item image filename
 	@Column(name = "FOR_SALE")
 	private boolean forSale; // if true then it is for sale
-	@OneToOne
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "PLAYER_ID")
 	private Player player; // tying the player table to the player item table via playerId
 
