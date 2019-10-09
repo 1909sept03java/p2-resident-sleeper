@@ -15,9 +15,10 @@
 		<!-- defaults to update -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- where are the mapped beans? -->
-		<mapping class="com.revature.model.Credential" />
-		<mapping class="com.revature.model.Player" />
-		<mapping class="com.revature.model.PlayerItem" />
-		<mapping class="com.revature.model.Item" />
+		<mapping class="com.revature.model.bean.Credential" />
+		<mapping class="com.revature.model.bean.Player" />
+		<mapping class="com.revature.model.bean.PlayerItem" />
+		<mapping class="com.revature.model.bean.Item" />
+		<mapping class="com.revature.model.bean.Activity" />
 	</session-factory>
 </hibernate-configuration>
