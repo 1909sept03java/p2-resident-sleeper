@@ -1,9 +1,14 @@
 package com.revature;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.revature.model.bean.Activity;
 import com.revature.model.bean.Credential;
 import com.revature.model.bean.Item;
 import com.revature.model.bean.Player;
 import com.revature.model.bean.PlayerItem;
+import com.revature.service.ConnectionService;
 
 public class Driver {
 
@@ -13,16 +18,16 @@ public class Driver {
 		
 		// creating a session factory and a session object for testing
 		// using the session factory also creates the tables in the DB
-		// SessionFactory sf = ConnectionService.getSessionFactory();
-		// Session sess = sf.openSession();
-		// sess.close();
+		SessionFactory sf = ConnectionService.getSessionFactory();
+		Session sess = sf.openSession();
+		sess.close();
 		
 		// creating rex with 100 coins and 0 minutes play time
 		Player rex = new Player(1,"rex@example.com", "rex", "cruz", "rex.png", 100, 0);
 		System.out.println(rex.toString());
 		
 		// creating credentials for rex
-		Credential rexCred = new Credential("rex13", "rexpass", rex);
+		Credential rexCred = new Credential(1, "rex13", "rexpass", rex);
 		System.out.println(rexCred);
 		
 		// creating a random item that rex owns
@@ -33,6 +38,9 @@ public class Driver {
 		Item whisperOfTheWyrm = new Item(1, "Whisper of the Wyrm", 12, "whisperOfTheWyrm.png");
 		System.out.println(whisperOfTheWyrm);
 		
+		// creating a random activity
+		Activity rexAct = new Activity(1, "Bought", whisperOfTheWyrm, rex);
+		System.out.println(rexAct);
 		
 	}
 
