@@ -1,13 +1,9 @@
 package com.revature;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import com.revature.model.Credential;
-import com.revature.model.Item;
-import com.revature.model.Player;
-import com.revature.model.PlayerItem;
-import com.revature.service.ConnectionService;
+import com.revature.model.bean.Credential;
+import com.revature.model.bean.Item;
+import com.revature.model.bean.Player;
+import com.revature.model.bean.PlayerItem;
 
 public class Driver {
 
