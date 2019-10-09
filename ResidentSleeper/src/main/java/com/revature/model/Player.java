@@ -9,14 +9,14 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER")
-public class User {
+@Table(name = "PLAYER")
+public class Player {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
-	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_USER_PK")
-	@Column(name = "USER_ID")
-	private int userId; // primary key for User table
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "playerSequence")
+	@SequenceGenerator(allocationSize = 1, name = "playerSequence", sequenceName = "SQ_PLAYER_PK")
+	@Column(name = "PLAYER_ID")
+	private int playerId; // primary key for player table
 	@Column(name = "EMAIL")
 	private String email;
 	@Column(name = "FIRSTNAME")
@@ -32,12 +32,12 @@ public class User {
 
 	// generated getters, setters, hashcode, equals, toString, constructors
 
-	public int getUserId() {
-		return userId;
+	public int getplayerId() {
+		return playerId;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setplayerId(int playerId) {
+		this.playerId = playerId;
 	}
 
 	public String getEmail() {
@@ -98,7 +98,7 @@ public class User {
 		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
 		result = prime * result + minutes;
-		result = prime * result + userId;
+		result = prime * result + playerId;
 		return result;
 	}
 
@@ -110,7 +110,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Player other = (Player) obj;
 		if (avatarFilename == null) {
 			if (other.avatarFilename != null)
 				return false;
@@ -135,21 +135,21 @@ public class User {
 			return false;
 		if (minutes != other.minutes)
 			return false;
-		if (userId != other.userId)
+		if (playerId != other.playerId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", email=" + email + ", firstname=" + firstname + ", lastname=" + lastname
+		return "Player [playerId=" + playerId + ", email=" + email + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", avatarFilename=" + avatarFilename + ", coins=" + coins + ", minutes=" + minutes + "]";
 	}
 
-	public User(int userId, String email, String firstname, String lastname, String avatarFilename, int coins,
+	public Player(int playerId, String email, String firstname, String lastname, String avatarFilename, int coins,
 			int minutes) {
 		super();
-		this.userId = userId;
+		this.playerId = playerId;
 		this.email = email;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -158,7 +158,7 @@ public class User {
 		this.minutes = minutes;
 	}
 
-	public User(String email, String firstname, String lastname, String avatarFilename, int coins, int minutes) {
+	public Player(String email, String firstname, String lastname, String avatarFilename, int coins, int minutes) {
 		super();
 		this.email = email;
 		this.firstname = firstname;
@@ -168,7 +168,7 @@ public class User {
 		this.minutes = minutes;
 	}
 
-	public User() {
+	public Player() {
 		super();
 	}
 

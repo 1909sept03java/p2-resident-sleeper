@@ -20,12 +20,12 @@ public class Credential {
 	@Column(name = "CREDENTIAL_ID")
 	private int credentialId; // primary key for the credential table
 	@Column(name = "USERNAME")
-	private String username; // used to login- username field
+	private String username; // used to login- playername field
 	@Column(name = "PASSWORD")
 	private String password; // used to login- password field
 	@OneToOne
-	@JoinColumn(name = "USER_ID")
-	private User user; // tying the user table to the credential table via userId
+	@JoinColumn(name = "PLAYER_ID")
+	private Player player; // tying the player table to the credential table via playerId
 
 	// generated getters, setters, hashcode, equals, toString, constructors
 
@@ -53,12 +53,12 @@ public class Credential {
 		this.password = password;
 	}
 
-	public User getUser() {
-		return user;
+	public Player getPlayer() {
+		return player;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	@Override
@@ -66,9 +66,9 @@ public class Credential {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + credentialId;
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((player == null) ? 0 : player.hashCode());
 		return result;
 	}
 
@@ -88,10 +88,10 @@ public class Credential {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (player == null) {
+			if (other.player != null)
 				return false;
-		} else if (!user.equals(other.user))
+		} else if (!player.equals(other.player))
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -104,22 +104,22 @@ public class Credential {
 	@Override
 	public String toString() {
 		return "Credential [credentialId=" + credentialId + ", username=" + username + ", password=" + password
-				+ ", user=" + user + "]";
+				+ ", player=" + player + "]";
 	}
 
-	public Credential(int credentialId, String username, String password, User user) {
+	public Credential(int credentialId, String username, String password, Player player) {
 		super();
 		this.credentialId = credentialId;
 		this.username = username;
 		this.password = password;
-		this.user = user;
+		this.player = player;
 	}
 
-	public Credential(String username, String password, User user) {
+	public Credential(String username, String password, Player player) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.user = user;
+		this.player = player;
 	}
 
 	public Credential() {
