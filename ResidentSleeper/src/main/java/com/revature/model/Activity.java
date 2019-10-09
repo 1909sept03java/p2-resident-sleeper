@@ -17,6 +17,6 @@ public class Activity {
 	private String type; // bought or sold
 	
 	private int itemId; // foreign key to item table
-	private int userId; // foreign key to user table
+	private int playerId; // foreign key to player table
 	
 }
