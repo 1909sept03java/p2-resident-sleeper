@@ -16,7 +16,7 @@ public class Credential {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credentialSequence")
-	@SequenceGenerator(allocationSize = 1, name = "flashcardSequence", sequenceName = "SQ_CREDENTIAL_PK")
+	@SequenceGenerator(allocationSize = 1, name = "credentialSequence", sequenceName = "SQ_CREDENTIAL_PK")
 	@Column(name = "CREDENTIAL_ID")
 	private int credentialId; // primary key for the credential table
 	@Column(name = "USERNAME")

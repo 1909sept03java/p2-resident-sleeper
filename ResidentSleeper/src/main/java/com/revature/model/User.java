@@ -1,13 +1,33 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USER")
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
+	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_USER_PK")
+	@Column(name = "USER_ID")
 	private int userId; // primary key for User table
+	@Column(name = "EMAIL")
 	private String email;
+	@Column(name = "FIRSTNAME")
 	private String firstname;
+	@Column(name = "LASTNAME")
 	private String lastname;
+	@Column(name = "AVATAR_FILENAME")
 	private String avatarFilename; // the filename of the users avatar image
+	@Column(name = "COINS")
 	private int coins; // amount of coins saved up from playing games
+	@Column(name = "MINUTES")
 	private int minutes; // total time spent playing games in minutes
 
 	// generated getters, setters, hashcode, equals, toString, constructors
