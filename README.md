@@ -16,3 +16,5 @@
 * cd into p2-resident-sleeper/gaming-market-place/ 
 * Run the command ng build 
 * Use ng serve to access it via the localhost
+* Use npm install --save @angular/material @angular/cdk @angular/animations 
+* to be able to use Angular Material
