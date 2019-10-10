@@ -22,17 +22,17 @@
 
 ## Branching
 
-* Check to see if you have the dev-rex branch
+* Check to see if you have the dev-rex branch  
 $ git branch
-* Get into the dev-rex branch
+* Get into the dev-rex branch  
 $ git checkout dev-rex
-* Create your own branch from the dev-rex branch
+* Create your own branch from the dev-rex branch  
 $ git checkout -b branch-name-here
-* let the rest of us know about the branch by doing
+* let the rest of us know about the branch by doing  
 $ git push -u dev-rex branch-name-here
 * check your terminal, you should be in (branch-name-here)
 * go on and start working on your part of the project
-* if you want to delete a branch from your git
+* if you want to delete a branch from your git  
 $ git checkout -d branch-name-here
 * if a branch has completed it's purpose, let rex know
 * so he can delete it permanently from the repo
