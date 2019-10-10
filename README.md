@@ -27,14 +27,17 @@ $ git branch
 * Get into the dev-rex branch  
 $ git checkout dev-rex
 * Create your own branch from the dev-rex branch  
-$ git checkout -b branch-name-here dev-rex
-* let the rest of us know about the branch by doing  
-$ git push -u branch-name-here
+$ git checkout -b branch-name-here
+* check to see if you're in your new branch  
+$ // do your work
+$ git add .
+$ git commit -m "I wRoTe CoDe ThAt DiDn't BrEaK tHe PrOjEcT"
 * check your terminal, you should be in (branch-name-here)
-* go on and start working on your part of the project  
-$ git add .  
-$ git commit -m "I wRoTe CoDe ThAt DiDn't BrEaK tHe PrOjEcT"  
-$ git push
+* now it's time to switch to dev-rex then pull then merge  
+$ git checkout dev-rex  
+$ git pull  
+$ git merge branch-name here  
+* you're done!
 * if you want to delete a branch from being tracked    
 $ git checkout -d branch-name-here
 * if a branch has completed it's purpose, let rex know
