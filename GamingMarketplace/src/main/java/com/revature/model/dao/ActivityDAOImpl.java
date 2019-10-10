@@ -26,7 +26,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 	}
 
 	@Override
-	public Activity getActivityById() {
+	public Activity getActivityById(int activityId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

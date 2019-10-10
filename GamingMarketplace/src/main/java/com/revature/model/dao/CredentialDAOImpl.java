@@ -25,7 +25,7 @@ public class CredentialDAOImpl implements CredentialDAO {
 		try (Session s = sf.openSession()) {
 			String hql = "SELECT player FROM Credential WHERE username =: username AND password =: password";
 			Query query = s.createQuery(hql);
-			query.setParameter("username", username);
+			query.setParameter("username", username.toLowerCase());
 			query.setParameter("password", password);
 			player = (Player) query.getSingleResult();
 			return player;
@@ -68,7 +68,7 @@ public class CredentialDAOImpl implements CredentialDAO {
 			Transaction tx = s.beginTransaction();
 			String hql = "Update Credential Set USERNAME =: username, PASSWORD =: password Where CREDENTIAL_ID =: credentialId";
 			Query query = s.createQuery(hql);
-			query.setParameter("username", credential.getUsername());
+			query.setParameter("username", credential.getUsername().toLowerCase());
 			query.setParameter("password", credential.getPassword());
 			query.setParameter("credentialId", credential.getCredentialId());
 			query.executeUpdate();
