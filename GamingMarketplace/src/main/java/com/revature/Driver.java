@@ -1,15 +1,5 @@
 package com.revature;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-
-import com.revature.model.bean.Credential;
-import com.revature.model.bean.Player;
-import com.revature.model.dao.CredentialDAO;
-import com.revature.model.dao.CredentialDAOImpl;
-import com.revature.service.ConnectionService;
-
 public class Driver {
 
 	public static void main(String[] args) {
@@ -55,7 +45,6 @@ public class Driver {
 		
 		
 		s.close();
-		 */
 		
 		String username = "rex13";
 		String password = "rexpass";
@@ -71,6 +60,7 @@ public class Driver {
 		credentialDAO.deleteCredential(rexCred);
 		
 		System.out.println(credentialDAO.getAll());
+		 */
 		
 	}
 
