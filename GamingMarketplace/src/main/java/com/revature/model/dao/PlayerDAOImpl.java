@@ -56,6 +56,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 			query.setParameter("avatarFilename", player.getAvatarFilename());
 			query.setParameter("coins", player.getCoins());
 			query.setParameter("minutes", player.getMinutes());
+			query.setParameter("playerId", player.getplayerId());
 			query.executeUpdate();
 			tx.commit();
 			isUpdated = true;

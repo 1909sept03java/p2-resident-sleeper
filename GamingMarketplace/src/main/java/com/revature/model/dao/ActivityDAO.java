@@ -13,12 +13,12 @@ public interface ActivityDAO {
 	public Activity getActivityById();
 
 	// this method adds a row into the player table
-	public void addActivity(Activity activity);
+	public boolean addActivity(Activity activity);
 
 	// this method updates a row in the player table
-	public void updateActivity(Activity activity);
+	public boolean updateActivity(Activity activity);
 
 	// this method deletes a row in the player table
-	public void deleteActivity(Activity activity);
+	public boolean deleteActivity(Activity activity);
 
 }
