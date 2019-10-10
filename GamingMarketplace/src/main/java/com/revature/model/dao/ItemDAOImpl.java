@@ -16,6 +16,10 @@ import com.revature.model.bean.Item;
 @Repository(value = "ItemDAO")
 public class ItemDAOImpl implements ItemDAO {
 
+	public ItemDAOImpl() {
+		super();
+	}
+
 	private SessionFactory sf;
 
 	@Autowired // constructor injection
