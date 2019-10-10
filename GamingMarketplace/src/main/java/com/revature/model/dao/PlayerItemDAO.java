@@ -2,6 +2,7 @@ package com.revature.model.dao;
 
 import java.util.List;
 
+import com.revature.model.bean.Player;
 import com.revature.model.bean.PlayerItem;
 
 public interface PlayerItemDAO {
@@ -10,7 +11,7 @@ public interface PlayerItemDAO {
 	public List<PlayerItem> getAll();
 
 	// this method returns a row in the player table
-	public PlayerItem getPlayerItemById();
+	public List<PlayerItem> getAllPlayerItemById(Player player);
 
 	// this method adds a row into the player table
 	public void addPlayerItem(PlayerItem playerItem);
