@@ -39,3 +39,13 @@ $ git push
 $ git checkout -d branch-name-here
 * if a branch has completed it's purpose, let rex know
 * so he can delete it permanently from the repo
+
+## Visit our Trello Page!
+https://trello.com/b/dsmuobOF/residentsleeper
+
+Our Scrum Lists includes:
+* Product Backlog
+* SPrint Planning
+* Current Sprint
+* In Progress
+* Done (per Sprint)
