@@ -29,9 +29,9 @@ $ git checkout dev-rex
 * Create your own branch from the dev-rex branch  
 $ git checkout -b branch-name-here
 * check to see if you're in your new branch  
-$ // do your work
-$ git add .
-$ git commit -m "I wRoTe CoDe ThAt DiDn't BrEaK tHe PrOjEcT"
+$ // do your work  
+$ git add .  
+$ git commit -m "I wRoTe CoDe ThAt DiDn't BrEaK tHe PrOjEcT"  
 * check your terminal, you should be in (branch-name-here)
 * now it's time to switch to dev-rex then pull then merge  
 $ git checkout dev-rex  
