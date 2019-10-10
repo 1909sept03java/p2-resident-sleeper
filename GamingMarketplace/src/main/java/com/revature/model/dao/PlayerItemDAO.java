@@ -14,11 +14,11 @@ public interface PlayerItemDAO {
 	public List<PlayerItem> getAllPlayerItemById(Player player);
 
 	// this method adds a row into the player table
-	public void addPlayerItem(PlayerItem playerItem);
+	public boolean addPlayerItem(PlayerItem playerItem);
 
 	// this method updates a row in the player table
-	public void updatePlayerItem(PlayerItem playerItem);
+	public boolean updatePlayerItem(PlayerItem playerItem);
 
 	// this method deletes a row in the player table
-	public void deletePlayerItem(PlayerItem playerItem);
+	public boolean deletePlayerItem(PlayerItem playerItem);
 }

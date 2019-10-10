@@ -13,12 +13,12 @@ public interface ItemDAO {
 	public Item getItemById();
 
 	// this method adds a row into the player table
-	public void addItem(Item item);
+	public boolean addItem(Item item);
 
 	// this method updates a row in the player table
-	public void updateItem(Item item);
+	public boolean updateItem(Item item);
 
 	// this method deletes a row in the player table
-	public void deleteItem(Item item);
+	public boolean deleteItem(Item item);
 
 }
