@@ -8,14 +8,21 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.revature.model.bean.Player;
 import com.revature.service.ConnectionService;
 
+@Repository(value = "playerDAO")
 public class PlayerDAOImpl implements PlayerDAO {
 	
-	private SessionFactory sf = ConnectionService.getSessionFactory();
+	private SessionFactory sf;
 
+	@Autowired // constructor injection
+	public PlayerDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
 	@Override
 	public List<Player> getAll() {
 		List<Player> playerList = new ArrayList<>();

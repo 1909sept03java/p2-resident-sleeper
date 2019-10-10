@@ -9,14 +9,21 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.revature.model.bean.Credential;
 import com.revature.model.bean.Player;
-import com.revature.service.ConnectionService;
 
+@Repository(value = "credentialDAO")
 public class CredentialDAOImpl implements CredentialDAO {
-	
-	private SessionFactory sf = ConnectionService.getSessionFactory();
+
+	private SessionFactory sf;
+
+	@Autowired // constructor injection
+	public CredentialDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	// Returns the player object if the login is successful or null if doesn't match
 	@Override

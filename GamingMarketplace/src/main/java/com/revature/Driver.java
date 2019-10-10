@@ -55,7 +55,6 @@ public class Driver {
 		
 		
 		s.close();
-		 */
 		
 		String username = "rex13";
 		String password = "rexpass";
@@ -71,6 +70,7 @@ public class Driver {
 		credentialDAO.deleteCredential(rexCred);
 		
 		System.out.println(credentialDAO.getAll());
+		 */
 		
 	}
 
