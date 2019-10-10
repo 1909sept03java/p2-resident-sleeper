@@ -12,8 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name = "Activity")
+@Component // creates the activity spring bean
 public class Activity {
 
 	@Id
@@ -25,9 +29,11 @@ public class Activity {
 	private String type; // bought or sold
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "ITEM_ID")
+	@Autowired // spring bean
 	private Item item;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "PLAYER_ID")
+	@Autowired // spring bean
 	private Player player;
 
 	// generated getters, setters, hashcode, equals, toString, constructors

@@ -12,8 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="PLAYER_ITEM")
+@Component // creates the playerItem spring bean
 public class PlayerItem {
 
 	@Id
@@ -31,6 +35,7 @@ public class PlayerItem {
 	private boolean forSale; // if true then it is for sale
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "PLAYER_ID")
+	@Autowired // spring bean
 	private Player player; // tying the player table to the player item table via playerId
 
 	// generated getters, setters, hashcode, equals, toString, constructors

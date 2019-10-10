@@ -10,8 +10,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name = "CREDENTIAL")
+@Component // creates the credential spring bean
 public class Credential {
 
 	@Id
@@ -25,6 +29,7 @@ public class Credential {
 	private String password; // used to login- password field
 	@OneToOne
 	@JoinColumn(name = "PLAYER_ID")
+	@Autowired // spring bean
 	private Player player; // tying the player table to the credential table via playerId
 
 	// generated getters, setters, hashcode, equals, toString, constructors
