@@ -20,4 +20,5 @@ public interface PlayerDAO {
 
 	// this method deletes a row in the player table
 	public void deletePlayer(Player player);
+	
 }

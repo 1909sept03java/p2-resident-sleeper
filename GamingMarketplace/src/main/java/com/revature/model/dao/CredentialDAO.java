@@ -7,13 +7,13 @@ import com.revature.model.bean.Player;
 
 public interface CredentialDAO {
 
-	// this method returns a list of all credential's
+	// this method returns a list of all activities's
 	public List<Credential> getAll();
 	
-	// this method returns a row in credential
+	// this method returns a row in activity
 	public Credential getCredentialById(int credentialId);
 	
-	// this method returns a row in player by credential id
+	// this method returns the player by credential id
 	public Player getPlayerById(int credentialId);
 	
 	// this method adds a row into the credential table
