@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.bean.Player;
 import com.revature.model.bean.PlayerItem;
-import com.revature.service.ConnectionService;
 
 
 @Repository(value = "playerItemDAO")

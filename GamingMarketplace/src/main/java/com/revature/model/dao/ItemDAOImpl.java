@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.revature.model.bean.Item;
-import com.revature.model.bean.Player;
-import com.revature.service.ConnectionService;
 
 @Repository(value = "ItemDAO")
 public class ItemDAOImpl implements ItemDAO {
