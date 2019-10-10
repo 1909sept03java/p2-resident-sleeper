@@ -31,8 +31,11 @@ $ git checkout -b branch-name-here dev-rex
 * let the rest of us know about the branch by doing  
 $ git push -u branch-name-here
 * check your terminal, you should be in (branch-name-here)
-* go on and start working on your part of the project
-* if you want to delete a branch from your git  
+* go on and start working on your part of the project  
+$ git add .  
+$ git commit -m "I wRoTe CoDe ThAt DiDn't BrEaK tHe PrOjEcT"  
+$ git push
+* if you want to delete a branch from being tracked    
 $ git checkout -d branch-name-here
 * if a branch has completed it's purpose, let rex know
 * so he can delete it permanently from the repo
