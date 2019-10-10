@@ -13,12 +13,12 @@ public interface PlayerDAO {
 	public Player getPlayerById();
 
 	// this method adds a row into the player table
-	public void addPlayer(Player player);
+	public boolean addPlayer(Player player);
 
 	// this method updates a row in the player table
-	public void updatePlayer(Player player);
+	public boolean updatePlayer(Player player);
 
 	// this method deletes a row in the player table
-	public void deletePlayer(Player player);
+	public boolean deletePlayer(Player player);
 	
 }
