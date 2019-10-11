@@ -3,11 +3,13 @@ package com.revature.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.dao.CredentialDAO;
 import com.revature.model.Credential;
 import com.revature.model.Player;
 
+@Service
 public class CredentialService {
 
 	private CredentialDAO credentialDAO;
