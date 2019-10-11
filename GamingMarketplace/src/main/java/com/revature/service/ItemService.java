@@ -22,8 +22,8 @@ public class ItemService {
 	}
 
 	// this method returns a row in the player table
-	public Item getItemById() {
-		return this.itemDAO.getItemById();
+	public Item getItemById(int itemId) {
+		return this.itemDAO.getItemById(itemId);
 	}
 
 	// this method adds a row into the player table

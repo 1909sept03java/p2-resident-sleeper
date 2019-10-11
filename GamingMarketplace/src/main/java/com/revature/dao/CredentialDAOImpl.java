@@ -52,8 +52,10 @@ public class CredentialDAOImpl implements CredentialDAO {
 
 	@Override
 	public Credential getCredentialById(int credentialId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.openSession();
+		Credential credential = s.get(Credential.class, credentialId);
+		s.close();
+		return credential;
 	}
 
 	@Override

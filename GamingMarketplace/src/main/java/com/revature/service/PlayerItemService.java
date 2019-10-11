@@ -42,4 +42,9 @@ public class PlayerItemService {
 		return this.playerItemDAO.deletePlayerItem(playerItem);
 	}
 
+	// this method returns a single row in player item
+	public PlayerItem getPlayerItemById(int playerItemId) {
+		return this.playerItemDAO.getPlayerItemById(playerItemId);
+	}
+	
 }

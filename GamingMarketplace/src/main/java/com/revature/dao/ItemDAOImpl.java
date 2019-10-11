@@ -33,9 +33,11 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public Item getItemById() {
-		// TODO Auto-generated method stub
-		return null;
+	public Item getItemById(int itemId) {
+		Session s = sf.openSession();
+		Item item = s.get(Item.class, itemId);
+		s.close();
+		return item;
 	}
 
 	@Override

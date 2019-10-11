@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.revature.model.Activity;
 import com.revature.model.Player;
 
 @Repository(value = "playerDAO")
@@ -33,9 +34,11 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public Player getPlayerById() {
-		// TODO Auto-generated method stub
-		return null;
+	public Player getPlayerById(int playerId) {
+		Session s = sf.openSession();
+		Player player = s.get(Player.class, playerId);
+		s.close();
+		return player;
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.revature.model.Activity;
 import com.revature.model.Player;
 import com.revature.model.PlayerItem;
 
@@ -94,6 +95,14 @@ public class PlayerItemDAOImpl implements PlayerItemDAO {
 			isDeleted = true;
 		}
 		return isDeleted;
+	}
+
+	@Override
+	public PlayerItem getPlayerItemById(int playerItemId) {
+		Session s = sf.openSession();
+		PlayerItem playerItem = s.get(PlayerItem.class, playerItemId);
+		s.close();
+		return playerItem;
 	}
 
 }

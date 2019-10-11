@@ -22,8 +22,8 @@ public class PlayerService {
 	}
 
 	// this method returns a row in the player table
-	public Player getPlayerById() {
-		return this.playerDAO.getPlayerById();
+	public Player getPlayerById(int playerId) {
+		return this.playerDAO.getPlayerById(playerId);
 	}
 
 	// this method adds a row into the player table
