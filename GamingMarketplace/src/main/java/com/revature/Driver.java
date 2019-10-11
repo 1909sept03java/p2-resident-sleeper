@@ -1,10 +1,14 @@
 package com.revature;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import com.revature.model.Activity;
 import com.revature.model.Credential;
 import com.revature.model.Item;
 import com.revature.model.Player;
 import com.revature.model.PlayerItem;
+import com.revature.service.ConnectionService;
 import com.revature.service.PlayerService;
 
 public class Driver {
@@ -37,9 +41,25 @@ public class Driver {
 		
 		// creating a session factory and a session object for testing
 		// using the session factory also creates the tables in the DB
-//		SessionFactory sf = ConnectionService.getSessionFactory();
-//		Session sess = sf.openSession();
-//		sess.close();
+		SessionFactory sf = ConnectionService.getSessionFactory();
+		Session s = sf.openSession();
+		
+		// adding rex
+		s.save(rex);
+		
+		// adding rex's credentials
+		s.save(rexCred);
+		
+		// adding rex's player item
+		s.save(rexPlayerItem);
+		
+		// adding whisper to the item marketplace
+		s.save(whisperOfTheWyrm);
+		
+		// adding that rex bought whisper
+		s.save(rexAct);
+		
+		s.close();
 
 		/*
 		 * 
