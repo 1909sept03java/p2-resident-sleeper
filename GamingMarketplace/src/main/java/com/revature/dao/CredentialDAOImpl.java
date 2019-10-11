@@ -12,8 +12,13 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/CredentialDAOImpl.java
 import com.revature.model.Credential;
 import com.revature.model.Player;
+=======
+import com.revature.bean.Credential;
+import com.revature.bean.Player;
+>>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/CredentialDAOImpl.java
 
 @Repository(value = "credentialDAO")
 public class CredentialDAOImpl implements CredentialDAO {

@@ -2,43 +2,35 @@ package com.revature.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.revature.dao.ItemDAO;
 import com.revature.model.Item;
+import com.revature.model.dao.ItemDAO;
+import com.revature.model.dao.ItemDAOImpl;
 
 public class ItemService {
 
-	private ItemDAO itemDAO;
-
-	@Autowired
-	public ItemService(ItemDAO itemDAO) {
-		this.itemDAO = itemDAO;
-	}
-
+	ItemDAO itemDAO = new ItemDAOImpl();
 	// this method returns a list of all player's
-	public List<Item> getAll() {
-		return this.itemDAO.getAll();
+	public List<Item> getAll(){
+		return itemDAO.getAll();
 	}
 
 	// this method returns a row in the player table
 	public Item getItemById() {
-		return this.itemDAO.getItemById();
+		return itemDAO.getItemById();
 	}
 
 	// this method adds a row into the player table
 	public boolean addItem(Item item) {
-		return this.itemDAO.addItem(item);
+		return itemDAO.addItem(item);
 	}
 
 	// this method updates a row in the player table
 	public boolean updateItem(Item item) {
-		return this.itemDAO.updateItem(item);
+		return itemDAO.updateItem(item);
 	}
 
 	// this method deletes a row in the player table
 	public boolean deleteItem(Item item) {
-		return this.itemDAO.deleteItem(item);
+		return itemDAO.deleteItem(item);
 	}
-
 }

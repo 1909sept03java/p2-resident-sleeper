@@ -11,7 +11,11 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/ActivityDAOImpl.java
 import com.revature.model.Activity;
+=======
+import com.revature.bean.Activity;
+>>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/ActivityDAOImpl.java
 
 @Repository(value="activityDAO")
 public class ActivityDAOImpl implements ActivityDAO {

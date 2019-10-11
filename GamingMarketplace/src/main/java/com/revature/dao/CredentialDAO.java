@@ -2,8 +2,13 @@ package com.revature.dao;
 
 import java.util.List;
 
+<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/CredentialDAO.java
 import com.revature.model.Credential;
 import com.revature.model.Player;
+=======
+import com.revature.bean.Credential;
+import com.revature.bean.Player;
+>>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/CredentialDAO.java
 
 public interface CredentialDAO {
 
