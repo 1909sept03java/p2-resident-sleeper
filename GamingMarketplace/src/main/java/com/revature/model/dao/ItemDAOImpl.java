@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Item;
+import com.revature.bean.Item;
 
 @Repository(value = "ItemDAO")
 public class ItemDAOImpl implements ItemDAO {

@@ -1,8 +1,8 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
-import com.revature.model.bean.Item;
+import com.revature.bean.Item;
 import com.revature.model.dao.ItemDAO;
 import com.revature.model.dao.ItemDAOImpl;
 

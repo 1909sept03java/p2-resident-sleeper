@@ -12,8 +12,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Player;
-import com.revature.model.bean.PlayerItem;
+import com.revature.bean.Player;
+import com.revature.bean.PlayerItem;
 
 
 @Repository(value = "playerItemDAO")

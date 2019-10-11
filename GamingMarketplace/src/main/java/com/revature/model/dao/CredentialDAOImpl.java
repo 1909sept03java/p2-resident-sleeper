@@ -12,8 +12,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Credential;
-import com.revature.model.bean.Player;
+import com.revature.bean.Credential;
+import com.revature.bean.Player;
 
 @Repository(value = "credentialDAO")
 public class CredentialDAOImpl implements CredentialDAO {

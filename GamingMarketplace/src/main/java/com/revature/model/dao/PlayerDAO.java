@@ -2,7 +2,7 @@ package com.revature.model.dao;
 
 import java.util.List;
 
-import com.revature.model.bean.Player;
+import com.revature.bean.Player;
 
 public interface PlayerDAO {
 

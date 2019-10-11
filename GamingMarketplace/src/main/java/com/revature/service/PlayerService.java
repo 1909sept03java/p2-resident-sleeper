@@ -1,11 +1,11 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.model.bean.Player;
+import com.revature.bean.Player;
 import com.revature.model.dao.PlayerDAO;
 
 @Service

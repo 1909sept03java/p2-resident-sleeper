@@ -1,8 +1,8 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
-import com.revature.model.bean.Activity;
+import com.revature.bean.Activity;
 import com.revature.model.dao.ActivityDAO;
 import com.revature.model.dao.ActivityDAOImpl;
 

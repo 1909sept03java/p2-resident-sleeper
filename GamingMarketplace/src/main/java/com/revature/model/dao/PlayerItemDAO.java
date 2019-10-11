@@ -2,8 +2,8 @@ package com.revature.model.dao;
 
 import java.util.List;
 
-import com.revature.model.bean.Player;
-import com.revature.model.bean.PlayerItem;
+import com.revature.bean.Player;
+import com.revature.bean.PlayerItem;
 
 public interface PlayerItemDAO {
 

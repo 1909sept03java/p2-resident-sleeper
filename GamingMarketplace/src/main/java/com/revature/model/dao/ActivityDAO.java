@@ -2,7 +2,7 @@ package com.revature.model.dao;
 
 import java.util.List;
 
-import com.revature.model.bean.Activity;
+import com.revature.bean.Activity;
 
 public interface ActivityDAO {
 

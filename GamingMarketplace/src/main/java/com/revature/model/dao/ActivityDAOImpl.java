@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Activity;
+import com.revature.bean.Activity;
 
 @Repository(value="activityDAO")
 public class ActivityDAOImpl implements ActivityDAO {

@@ -2,7 +2,7 @@ package com.revature.model.dao;
 
 import java.util.List;
 
-import com.revature.model.bean.Item;
+import com.revature.bean.Item;
 
 public interface ItemDAO {
 
