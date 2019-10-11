@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +8,20 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Item;
-import com.revature.model.bean.Player;
-import com.revature.service.ConnectionService;
+import com.revature.model.Item;
 
+@Repository(value = "ItemDAO")
 public class ItemDAOImpl implements ItemDAO {
 
-	private SessionFactory sf = ConnectionService.getSessionFactory();
+	private SessionFactory sf;
+
+	@Autowired // constructor injection
+	public ItemDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	@Override
 	public List<Item> getAll() {

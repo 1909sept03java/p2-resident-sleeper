@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,20 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Activity;
-import com.revature.service.ConnectionService;
+import com.revature.model.Activity;
 
+@Repository(value="activityDAO")
 public class ActivityDAOImpl implements ActivityDAO {
 
-	private SessionFactory sf = ConnectionService.getSessionFactory();
+	private SessionFactory sf;
+	
+	@Autowired // constructor injection
+	public ActivityDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	@Override
 	public List<Activity> getAll() {
@@ -26,7 +33,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 	}
 
 	@Override
-	public Activity getActivityById() {
+	public Activity getActivityById(int activityId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

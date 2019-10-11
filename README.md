@@ -17,8 +17,11 @@
 * cd into p2-resident-sleeper/gaming-market-place/ 
 * Run the command ng build 
 * Use ng serve to access it via the localhost
-* Use npm install --save @angular/material @angular/cdk @angular/animations 
-* to be able to use Angular Material
+* Use npm install --save @angular/material @angular/cdk @angular/animations to be able to use Angular Material
+
+## Snake Eater Game
+* Game coded by Samir Hodzic
+* Link to his repository: github.com/SamirHodzic/ngx-snake
 
 ## Branching
 
@@ -46,3 +49,10 @@ $ git checkout -d branch-name-here
 ## Visit our Trello Page!
 
 https://trello.com/b/dsmuobOF/residentsleeper
+
+Our Scrum Lists includes:
+* Product Backlog
+* SPrint Planning
+* Current Sprint
+* In Progress
+* Done (per Sprint)

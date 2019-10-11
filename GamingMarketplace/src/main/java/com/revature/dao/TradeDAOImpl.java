@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 public class TradeDAOImpl implements TradeDAO {
 

@@ -4,7 +4,9 @@
 <!-- other option for validating XML files: XSD ("XML Schema Definition") -->
 <!-- an XML file may be "well-formed" without being "valid" (conforming to 
 	a DTD or XSD) -->
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver.class">oracle.jdbc.driver.OracleDriver</property>
@@ -15,10 +17,13 @@
 		<!-- defaults to update -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- where are the mapped beans? -->
-		<mapping class="com.revature.model.bean.Credential" />
-		<mapping class="com.revature.model.bean.Player" />
-		<mapping class="com.revature.model.bean.PlayerItem" />
-		<mapping class="com.revature.model.bean.Item" />
-		<mapping class="com.revature.model.bean.Activity" />
+		<mapping class="com.revature.model.Activity" />
+		<mapping class="com.revature.model.Credential" />
+		<mapping class="com.revature.model.Item" />
+		<mapping class="com.revature.model.Player" />
+		<mapping class="com.revature.model.PlayerItem" />
+		<!-- 
+		 <mapping class="com.revature.model.Trade" />
+		 -->
 	</session-factory>
 </hibernate-configuration>

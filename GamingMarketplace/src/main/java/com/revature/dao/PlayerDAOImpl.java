@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,20 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Player;
-import com.revature.service.ConnectionService;
+import com.revature.model.Player;
 
+@Repository(value = "playerDAO")
 public class PlayerDAOImpl implements PlayerDAO {
-	
-	private SessionFactory sf = ConnectionService.getSessionFactory();
+
+	private SessionFactory sf;
+
+	@Autowired // constructor injection
+	public PlayerDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	@Override
 	public List<Player> getAll() {
@@ -40,7 +47,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 			tx.commit();
 			isAdded = true;
 		}
-		return isAdded;		
+		return isAdded;
 	}
 
 	@Override
@@ -61,7 +68,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 			tx.commit();
 			isUpdated = true;
 		}
-		return isUpdated;		
+		return isUpdated;
 	}
 
 	@Override

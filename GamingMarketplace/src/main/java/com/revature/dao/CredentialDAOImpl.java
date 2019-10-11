@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,21 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Credential;
-import com.revature.model.bean.Player;
-import com.revature.service.ConnectionService;
+import com.revature.model.Credential;
+import com.revature.model.Player;
 
+@Repository(value = "credentialDAO")
 public class CredentialDAOImpl implements CredentialDAO {
-	
-	private SessionFactory sf = ConnectionService.getSessionFactory();
+
+	private SessionFactory sf;
+
+	@Autowired // constructor injection
+	public CredentialDAOImpl(SessionFactory sf) {
+		this.sf = sf;
+	}
 
 	// Returns the player object if the login is successful or null if doesn't match
 	@Override
@@ -25,7 +32,7 @@ public class CredentialDAOImpl implements CredentialDAO {
 		try (Session s = sf.openSession()) {
 			String hql = "SELECT player FROM Credential WHERE username =: username AND password =: password";
 			Query query = s.createQuery(hql);
-			query.setParameter("username", username);
+			query.setParameter("username", username.toLowerCase());
 			query.setParameter("password", password);
 			player = (Player) query.getSingleResult();
 			return player;
@@ -68,7 +75,7 @@ public class CredentialDAOImpl implements CredentialDAO {
 			Transaction tx = s.beginTransaction();
 			String hql = "Update Credential Set USERNAME =: username, PASSWORD =: password Where CREDENTIAL_ID =: credentialId";
 			Query query = s.createQuery(hql);
-			query.setParameter("username", credential.getUsername());
+			query.setParameter("username", credential.getUsername().toLowerCase());
 			query.setParameter("password", credential.getPassword());
 			query.setParameter("credentialId", credential.getCredentialId());
 			query.executeUpdate();

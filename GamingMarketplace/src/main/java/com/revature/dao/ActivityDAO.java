@@ -1,8 +1,8 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.model.bean.Activity;
+import com.revature.model.Activity;
 
 public interface ActivityDAO {
 
@@ -10,7 +10,7 @@ public interface ActivityDAO {
 	public List<Activity> getAll();
 
 	// this method returns a row in the player table
-	public Activity getActivityById();
+	public Activity getActivityById(int activityId);
 
 	// this method adds a row into the player table
 	public boolean addActivity(Activity activity);
