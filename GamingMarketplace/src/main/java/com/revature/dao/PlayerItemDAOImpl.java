@@ -19,10 +19,6 @@ import com.revature.model.PlayerItem;
 @Repository(value = "playerItemDAO")
 public class PlayerItemDAOImpl implements PlayerItemDAO {
 	
-	public PlayerItemDAOImpl() {
-		super();
-	}
-
 	private SessionFactory sf;
 
 	@Autowired // constructor injection

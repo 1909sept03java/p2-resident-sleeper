@@ -16,10 +16,6 @@ import com.revature.model.Activity;
 @Repository(value="activityDAO")
 public class ActivityDAOImpl implements ActivityDAO {
 
-	public ActivityDAOImpl() {
-		super();
-	}
-
 	private SessionFactory sf;
 	
 	@Autowired // constructor injection

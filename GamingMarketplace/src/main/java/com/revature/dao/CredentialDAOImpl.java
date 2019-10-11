@@ -18,10 +18,6 @@ import com.revature.model.Player;
 @Repository(value = "credentialDAO")
 public class CredentialDAOImpl implements CredentialDAO {
 
-	public CredentialDAOImpl() {
-		super();
-	}
-
 	private SessionFactory sf;
 
 	@Autowired // constructor injection

@@ -15,10 +15,6 @@ import com.revature.model.Player;
 
 @Repository(value = "playerDAO")
 public class PlayerDAOImpl implements PlayerDAO {
-	
-	public PlayerDAOImpl() {
-		super();
-	}
 
 	private SessionFactory sf;
 
@@ -26,6 +22,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	public PlayerDAOImpl(SessionFactory sf) {
 		this.sf = sf;
 	}
+
 	@Override
 	public List<Player> getAll() {
 		List<Player> playerList = new ArrayList<>();
@@ -50,7 +47,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 			tx.commit();
 			isAdded = true;
 		}
-		return isAdded;		
+		return isAdded;
 	}
 
 	@Override
@@ -71,7 +68,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 			tx.commit();
 			isUpdated = true;
 		}
-		return isUpdated;		
+		return isUpdated;
 	}
 
 	@Override
