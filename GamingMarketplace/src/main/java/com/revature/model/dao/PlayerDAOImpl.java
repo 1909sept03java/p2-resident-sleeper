@@ -32,9 +32,14 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public Player getPlayerById() {
-		// TODO Auto-generated method stub
-		return null;
+	public Player getPlayerById(int playerId) {
+		// modified by Tomi to build PlayerService function
+		Player player = null;
+		try (Session s = sf.openSession()) {
+			player = s.get(Player.class, playerId);
+			System.out.println(s.getStatistics());
+		}
+		return player;
 	}
 
 	@Override
