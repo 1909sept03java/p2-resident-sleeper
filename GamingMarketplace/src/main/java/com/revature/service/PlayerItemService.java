@@ -1,11 +1,11 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
-import com.revature.model.bean.Player;
-import com.revature.model.bean.PlayerItem;
-import com.revature.model.dao.PlayerItemDAO;
-import com.revature.model.dao.PlayerItemDAOImpl;
+import com.revature.dao.PlayerItemDAO;
+import com.revature.dao.PlayerItemDAOImpl;
+import com.revature.model.Player;
+import com.revature.model.PlayerItem;
 
 public class PlayerItemService {
 	PlayerItemDAO playerItemDAO = new PlayerItemDAOImpl();

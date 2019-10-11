@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,80 +11,79 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Item;
+import com.revature.model.Activity;
 
-@Repository(value = "ItemDAO")
-public class ItemDAOImpl implements ItemDAO {
+@Repository(value="activityDAO")
+public class ActivityDAOImpl implements ActivityDAO {
 
-	public ItemDAOImpl() {
+	public ActivityDAOImpl() {
 		super();
 	}
 
 	private SessionFactory sf;
-
+	
 	@Autowired // constructor injection
-	public ItemDAOImpl(SessionFactory sf) {
+	public ActivityDAOImpl(SessionFactory sf) {
 		this.sf = sf;
 	}
 
 	@Override
-	public List<Item> getAll() {
-		List<Item> itemList = new ArrayList<>();
+	public List<Activity> getAll() {
+		List<Activity> activityList = new ArrayList<>();
 		try (Session s = sf.openSession()) {
-			itemList = s.createQuery("from Item").getResultList();
+			activityList = s.createQuery("from Activity").getResultList();
 		}
-		return itemList;
+		return activityList;
 	}
 
 	@Override
-	public Item getItemById() {
+	public Activity getActivityById(int activityId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean addItem(Item item) {
+	public boolean addActivity(Activity activity) {
 		boolean isAdded = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			s.save(item);
+			s.save(activity);
 			tx.commit();
 			isAdded = true;
 		}
-		return isAdded;
+		return isAdded;	
 	}
 
 	@Override
-	public boolean updateItem(Item item) {
+	public boolean updateActivity(Activity activity) {
 		boolean isUpdated = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			String hql = "Update Player Set NAME =: name, VALUE =: value, ITEM_FILENAME =: itemFilename Where ITEM_ID =: itemId";
+			String hql = "Update Activity Set TYPE =: type, ITEM_ID =: itemId, PLAYER_ID =: playerId Where ACTIVITY_ID =: activityId";
 			Query query = s.createQuery(hql);
-			query.setParameter("name", item.getName());
-			query.setParameter("value", item.getValue());
-			query.setParameter("itemFilename", item.getItemFilename());
-			query.setParameter("itemId", item.getItemId());
+			query.setParameter("type", activity.getType());
+			query.setParameter("itemId", activity.getItem().getItemId());
+			query.setParameter("activityId", activity.getActivityId());
 			query.executeUpdate();
 			tx.commit();
 			isUpdated = true;
 		}
-		return isUpdated;
+		return isUpdated;				
 	}
 
 	@Override
-	public boolean deleteItem(Item item) {
+	public boolean deleteActivity(Activity activity) {
 		boolean isDeleted = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			String hql = "Delete from Item Where ITEM_ID =: itemId";
+			String hql = "Delete from Activity Where ACTIVITY_ID =: activityId";
 			Query query = s.createQuery(hql);
-			query.setParameter("itemId", item.getItemId());
+			query.setParameter("activityId", activity.getActivityId());
 			query.executeUpdate();
 			tx.commit();
 			isDeleted = true;
 		}
-		return isDeleted;
+		return isDeleted;		
 	}
 
 }

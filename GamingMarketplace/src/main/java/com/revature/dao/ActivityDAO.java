@@ -1,8 +1,8 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.model.bean.Activity;
+import com.revature.model.Activity;
 
 public interface ActivityDAO {
 

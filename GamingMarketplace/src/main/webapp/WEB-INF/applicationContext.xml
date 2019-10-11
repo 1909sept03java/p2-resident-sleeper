@@ -3,15 +3,31 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/context 
 	 http://www.springframework.org/schema/context/spring-context-4.3.xsd
 	 http://www.springframework.org/schema/tx 
-	 http://www.springframework.org/schema/tx/spring-tx.xsd">
-	 
-	 <context:component-scan base-package="com.revature"></context:component-scan>
-	 
-	 <tx:annotation-driven transaction-manager="transactionManager"/>
-	 
+	 http://www.springframework.org/schema/tx/spring-tx.xsd
+	 http://www.springframework.org/schema/mvc 
+	 http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- this is replaced with @Component on top of bean to create spring bean 
+		<bean name="activityBean" class="com.revature.model.bean.Activity" /> <bean 
+		name="credentialBean" class="com.revature.model.bean.Credential" /> <bean 
+		name="itemBean" class="com.revature.model.bean.Item" /> <bean name="playerBean" 
+		class="com.revature.model.bean.Player" /> <bean name="playerItemBean" class="com.revature.model.bean.PlayerItem" 
+		/> -->
+
+	<context:component-scan
+		base-package="com.revature" />
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+	<!-- enable MVC annotations -->
+	<mvc:annotation-driven />
+
+
 </beans>

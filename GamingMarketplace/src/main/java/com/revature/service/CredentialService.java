@@ -1,11 +1,11 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
-import com.revature.model.bean.Credential;
-import com.revature.model.bean.Player;
-import com.revature.model.dao.CredentialDAO;
-import com.revature.model.dao.CredentialDAOImpl;
+import com.revature.dao.CredentialDAO;
+import com.revature.dao.CredentialDAOImpl;
+import com.revature.model.Credential;
+import com.revature.model.Player;
 
 public class CredentialService {
 	CredentialDAO credentialDAO = new CredentialDAOImpl();

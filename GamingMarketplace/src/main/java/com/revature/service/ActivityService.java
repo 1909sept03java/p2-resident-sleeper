@@ -1,10 +1,10 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
-import com.revature.model.bean.Activity;
-import com.revature.model.dao.ActivityDAO;
-import com.revature.model.dao.ActivityDAOImpl;
+import com.revature.dao.ActivityDAO;
+import com.revature.dao.ActivityDAOImpl;
+import com.revature.model.Activity;
 
 public class ActivityService {
 	ActivityDAO activityDAO = new ActivityDAOImpl();

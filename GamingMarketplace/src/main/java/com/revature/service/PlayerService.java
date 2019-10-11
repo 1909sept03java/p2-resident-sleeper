@@ -1,10 +1,10 @@
-package com.revature.model.service;
+package com.revature.service;
 
 import java.util.List;
 
-import com.revature.model.bean.Player;
-import com.revature.model.dao.PlayerDAO;
-import com.revature.model.dao.PlayerDAOImpl;
+import com.revature.dao.PlayerDAO;
+import com.revature.dao.PlayerDAOImpl;
+import com.revature.model.Player;
 
 public class PlayerService {
 

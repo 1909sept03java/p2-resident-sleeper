@@ -1,4 +1,4 @@
-package com.revature.model.bean;
+package com.revature.model;
 
 public class Trade {
 

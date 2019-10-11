@@ -1,4 +1,4 @@
-package com.revature.model.dao;
+package com.revature.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.bean.Player;
+import com.revature.model.Player;
 
 @Repository(value = "playerDAO")
 public class PlayerDAOImpl implements PlayerDAO {
