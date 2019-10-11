@@ -34,8 +34,10 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 	@Override
 	public Activity getActivityById(int activityId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.openSession();
+		Activity activity = s.get(Activity.class, activityId);
+		s.close();
+		return activity;
 	}
 
 	@Override

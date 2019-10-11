@@ -3,10 +3,12 @@ package com.revature.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.dao.ItemDAO;
 import com.revature.model.Item;
 
+@Service
 public class ItemService {
 
 	private ItemDAO itemDAO;
@@ -22,8 +24,8 @@ public class ItemService {
 	}
 
 	// this method returns a row in the player table
-	public Item getItemById() {
-		return this.itemDAO.getItemById();
+	public Item getItemById(int itemId) {
+		return this.itemDAO.getItemById(itemId);
 	}
 
 	// this method adds a row into the player table

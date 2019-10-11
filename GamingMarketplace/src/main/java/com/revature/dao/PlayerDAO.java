@@ -10,7 +10,8 @@ public interface PlayerDAO {
 	public List<Player> getAll();
 	
 	// this method returns a row in the player table
-	public Player getPlayerById();
+	//modified by Tomi
+	public Player getPlayerById(int playerId);
 
 	// this method adds a row into the player table
 	public boolean addPlayer(Player player);

@@ -10,9 +10,12 @@ public interface PlayerItemDAO {
 	// this method returns a list of all player's
 	public List<PlayerItem> getAll();
 
-	// this method returns a row in the player table
+	// this method returns a list of row in the player table
 	public List<PlayerItem> getAllPlayerItemById(Player player);
 
+	// this method returns a single row
+	public PlayerItem getPlayerItemById(int playerItemId);
+	
 	// this method adds a row into the player table
 	public boolean addPlayerItem(PlayerItem playerItem);
 

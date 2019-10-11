@@ -10,7 +10,7 @@ public interface ItemDAO {
 	public List<Item> getAll();
 
 	// this method returns a row in the player table
-	public Item getItemById();
+	public Item getItemById(int itemId);
 
 	// this method adds a row into the player table
 	public boolean addItem(Item item);

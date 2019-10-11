@@ -3,10 +3,12 @@ package com.revature.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.revature.dao.PlayerDAO;
 import com.revature.model.Player;
 
+@Service
 public class PlayerService {
 
 	private PlayerDAO playerDAO;
@@ -17,17 +19,20 @@ public class PlayerService {
 	}
 
 	// this method returns a list of all player's
-	public List<Player> getAll() {
+	public List<Player> getAll(){
+		//return playerDAO.getAll();
 		return this.playerDAO.getAll();
 	}
 
 	// this method returns a row in the player table
-	public Player getPlayerById() {
-		return this.playerDAO.getPlayerById();
+	public Player getPlayerById(int playerId) {
+		//return playerDAO.getPlayerById();
+		return this.playerDAO.getPlayerById(playerId);
 	}
 
 	// this method adds a row into the player table
 	public boolean addPlayer(Player player) {
+		//return playerDAO.addPlayer(player);
 		return this.playerDAO.addPlayer(player);
 	}
 
@@ -42,3 +47,4 @@ public class PlayerService {
 	}
 
 }
+
