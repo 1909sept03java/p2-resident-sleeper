@@ -7,16 +7,20 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { GameComponent } from './game/game.component';
+//import { BestScoreManager } from './game/game.storage.service';
 
 const appRoutes: Routes = [
   { path: '',      component: LoginComponent },
-  { path: 'login',      component: LoginComponent }
+  { path: 'login',      component: LoginComponent },
+  { path: 'game',      component: GameComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
