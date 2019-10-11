@@ -1,0 +1,22 @@
+.example-card {
+    width: 50%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+mat-card-header {
+    justify-content: center;
+}
+.example-full-width {
+    margin-right: auto;
+    margin-left: auto;
+}
+mat-toolbar-row{
+    justify-content: center;    
+}
+#myButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
