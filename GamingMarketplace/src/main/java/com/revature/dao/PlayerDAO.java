@@ -2,11 +2,7 @@ package com.revature.dao;
 
 import java.util.List;
 
-<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/PlayerDAO.java
 import com.revature.model.Player;
-=======
-import com.revature.bean.Player;
->>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/PlayerDAO.java
 
 public interface PlayerDAO {
 

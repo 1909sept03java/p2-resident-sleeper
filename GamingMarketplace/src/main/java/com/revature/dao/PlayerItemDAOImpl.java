@@ -12,13 +12,9 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/PlayerItemDAOImpl.java
+import com.revature.model.Activity;
 import com.revature.model.Player;
 import com.revature.model.PlayerItem;
-=======
-import com.revature.bean.Player;
-import com.revature.bean.PlayerItem;
->>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/PlayerItemDAOImpl.java
 
 
 @Repository(value = "playerItemDAO")
@@ -99,6 +95,14 @@ public class PlayerItemDAOImpl implements PlayerItemDAO {
 			isDeleted = true;
 		}
 		return isDeleted;
+	}
+
+	@Override
+	public PlayerItem getPlayerItemById(int playerItemId) {
+		Session s = sf.openSession();
+		PlayerItem playerItem = s.get(PlayerItem.class, playerItemId);
+		s.close();
+		return playerItem;
 	}
 
 }

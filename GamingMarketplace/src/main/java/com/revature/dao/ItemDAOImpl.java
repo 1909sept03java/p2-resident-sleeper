@@ -11,11 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/ItemDAOImpl.java
 import com.revature.model.Item;
-=======
-import com.revature.bean.Item;
->>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/ItemDAOImpl.java
 
 @Repository(value = "ItemDAO")
 public class ItemDAOImpl implements ItemDAO {
@@ -37,9 +33,11 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public Item getItemById() {
-		// TODO Auto-generated method stub
-		return null;
+	public Item getItemById(int itemId) {
+		Session s = sf.openSession();
+		Item item = s.get(Item.class, itemId);
+		s.close();
+		return item;
 	}
 
 	@Override

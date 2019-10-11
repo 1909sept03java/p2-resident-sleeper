@@ -11,11 +11,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/PlayerDAOImpl.java
-import com.revature.model.Player;
-=======
-import com.revature.bean.Player;
->>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/PlayerDAOImpl.java
+import com.revature.model.Activity;
+import com.revature.model.Player;;
 
 @Repository(value = "playerDAO")
 public class PlayerDAOImpl implements PlayerDAO {
@@ -39,11 +36,13 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public Player getPlayerById(int playerId) {
 		// modified by Tomi to build PlayerService function
-		Player player = null;
 		try (Session s = sf.openSession()) {
-			player = s.get(Player.class, playerId);
+			Player player = s.get(Player.class, playerId);
 			System.out.println(s.getStatistics());
 		}
+		Session s = sf.openSession();
+		Player player = s.get(Player.class, playerId);
+		s.close();
 		return player;
 	}
 

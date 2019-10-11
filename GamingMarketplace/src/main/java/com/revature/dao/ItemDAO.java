@@ -2,11 +2,7 @@ package com.revature.dao;
 
 import java.util.List;
 
-<<<<<<< HEAD:GamingMarketplace/src/main/java/com/revature/dao/ItemDAO.java
 import com.revature.model.Item;
-=======
-import com.revature.bean.Item;
->>>>>>> service_classes:GamingMarketplace/src/main/java/com/revature/model/dao/ItemDAO.java
 
 public interface ItemDAO {
 
@@ -14,7 +10,7 @@ public interface ItemDAO {
 	public List<Item> getAll();
 
 	// this method returns a row in the player table
-	public Item getItemById();
+	public Item getItemById(int itemId);
 
 	// this method adds a row into the player table
 	public boolean addItem(Item item);
