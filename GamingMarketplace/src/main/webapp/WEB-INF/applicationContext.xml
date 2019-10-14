@@ -28,6 +28,17 @@
 
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven />
+	
+	<!-- enable mapping of static resources -->
+	<mvc:resources location="/WEB-INF/static/"
+		mapping="/resources/**"></mvc:resources>
+
+	<!-- set up ViewResolver -->
+	<bean name="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
 
 
 </beans>
