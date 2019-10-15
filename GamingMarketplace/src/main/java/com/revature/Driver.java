@@ -43,20 +43,23 @@ public class Driver {
 		Transaction tx = s.beginTransaction();
 		
 		// adding rex
-		s.save(rex);
+		//s.save(rex);
 		
 		// adding rex's credentials
-		s.save(rexCred);
+		//s.save(rexCred);
 		
 		// adding rex's player item
-		s.save(rexPlayerItem);
+		//s.save(rexPlayerItem);
 		
 		// adding whisper to the item marketplace
-		s.save(whisperOfTheWyrm);
+		//s.save(whisperOfTheWyrm);
 		
 		// adding that rex bought whisper
-		s.save(rexAct);
+		//s.save(rexAct);
 		
+		//tomi - getting information
+		Activity tom = s.get(Activity.class, 1);
+		System.out.println(tom);
 		// committing and releasing resources 
 		tx.commit();
 		s.close();
