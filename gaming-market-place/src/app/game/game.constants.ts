@@ -1,13 +1,13 @@
-export const BOARD_SIZE = 18;
+export const BOARD_SIZE = 18; // size of the board
 
-export const CONTROLS = {
+export const CONTROLS = { // buttons for controlling snake movement
   LEFT: 37,
   UP: 38,
   RIGHT: 39,
   DOWN: 40
 };
 
-export const COLORS = {
+export const COLORS = { // colors of the game.
   GAME_OVER: '#D24D57',
   FRUIT: '#EC644B',
   HEAD: '#336E7B',
@@ -16,7 +16,7 @@ export const COLORS = {
   OBSTACLE: '#383522'
 };
 
-export const GAME_MODES = {
+export const GAME_MODES = { // 3 different game modes
   classic: 'Classic',
   no_walls: 'No Walls',
   obstacles: 'Obstacles'
