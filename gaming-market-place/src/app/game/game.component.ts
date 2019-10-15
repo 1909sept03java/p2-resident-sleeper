@@ -23,7 +23,7 @@ export class GameComponent implements OnInit {
   public showMenuChecker = false;
   public gameStarted = false;
 
-  private snake = {
+  private snake = { // initial positon 
     direction: CONTROLS.LEFT,
     parts: [
       {
@@ -33,7 +33,7 @@ export class GameComponent implements OnInit {
     ]
   };
 
-  private fruit = {
+  private fruit = { // initial position
     x: -1,
     y: -1
   };
@@ -42,7 +42,7 @@ export class GameComponent implements OnInit {
     this.setBoard();
   }
 
-  handleKeyboardEvents(e: KeyboardEvent) {
+  handleKeyboardEvents(e: KeyboardEvent) { // Control which directions snake can go in. 
     if (e.keyCode === CONTROLS.LEFT && this.snake.direction !== CONTROLS.RIGHT) {
       this.tempDirection = CONTROLS.LEFT;
     } else if (e.keyCode === CONTROLS.UP && this.snake.direction !== CONTROLS.DOWN) {
@@ -54,7 +54,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  setColors(col: number, row: number): string {
+  setColors(col: number, row: number): string { // How to populate each part of the gameboard with the snake and fruits
     if (this.isGameOver) {
       return COLORS.GAME_OVER;
     } else if (this.fruit.x === row && this.fruit.y === col) {
@@ -70,11 +70,11 @@ export class GameComponent implements OnInit {
     return COLORS.BOARD;
   };
 
-  updatePositions(): void {
+  updatePositions(): 
     let newHead = this.repositionHead();
     let me = this;
 
-    if (this.default_mode === 'classic' && this.boardCollision(newHead)) {
+    if (this.default_mode === 'classic' && this.boardCollision(newHead)) { // picking the mode
       return this.gameOver();
     } else if (this.default_mode === 'no_walls') {
       this.noWallsTransition(newHead);
@@ -85,7 +85,7 @@ export class GameComponent implements OnInit {
       }
     }
 
-    if (this.selfCollision(newHead)) {
+    if (this.selfCollision(newHead)) { // if you collide with yourself
       return this.gameOver();
     } else if (this.fruitCollision(newHead)) {
       this.eatFruit();
@@ -104,7 +104,7 @@ export class GameComponent implements OnInit {
     }, this.interval);
   }
 
-  repositionHead(): any {
+  repositionHead(): any { // controlling where the head moves next. 
     let newHead = Object.assign({}, this.snake.parts[0]);
 
     if (this.tempDirection === CONTROLS.LEFT) {
@@ -120,7 +120,7 @@ export class GameComponent implements OnInit {
     return newHead;
   }
 
-  noWallsTransition(part: any): void {
+  noWallsTransition(part: any): void { // transition from one side of board to the other
     if (part.x === BOARD_SIZE) {
       part.x = 0;
     } else if (part.x === -1) {
@@ -134,7 +134,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  addObstacles(): void {
+  addObstacles(): void { // generating random walls
     let x = this.randomNumber();
     let y = this.randomNumber();
 
@@ -160,7 +160,7 @@ export class GameComponent implements OnInit {
     return res;
   }
 
-  obstacleCollision(part: any): boolean {
+  obstacleCollision(part: any): boolean { // all below check for collision with walls, obstacles and fruits
     return this.checkObstacles(part.x, part.y);
   }
 
@@ -176,7 +176,7 @@ export class GameComponent implements OnInit {
     return part.x === this.fruit.x && part.y === this.fruit.y;
   }
 
-  resetFruit(): void {
+  resetFruit(): void { // placing the fruit in a random spot.
     let x = this.randomNumber();
     let y = this.randomNumber();
 
@@ -190,7 +190,7 @@ export class GameComponent implements OnInit {
     };
   }
 
-  eatFruit(): void {
+  eatFruit(): void { // increase the score
     this.score++;
 
     let tail = Object.assign({}, this.snake.parts[this.snake.parts.length - 1]);
@@ -203,7 +203,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  gameOver(): void {
+  gameOver(): void { //restart the game.
     this.isGameOver = true;
     this.gameStarted = false;
     let me = this;
@@ -215,7 +215,7 @@ export class GameComponent implements OnInit {
     this.setBoard();
   }
 
-  randomNumber(): any {
+  randomNumber(): any { // picking a random number thats within the board size
     return Math.floor(Math.random() * BOARD_SIZE);
   }
 
