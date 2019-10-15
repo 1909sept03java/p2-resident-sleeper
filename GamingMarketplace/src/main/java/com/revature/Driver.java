@@ -1,15 +1,10 @@
 package com.revature;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-
 import com.revature.model.Activity;
 import com.revature.model.Credential;
 import com.revature.model.Item;
 import com.revature.model.Player;
 import com.revature.model.PlayerItem;
-import com.revature.service.ConnectionService;
 
 public class Driver {
 
@@ -39,6 +34,8 @@ public class Driver {
 		Activity rexAct = new Activity("Bought", whisperOfTheWyrm, rex);
 		System.out.println(rexAct);
 		
+		/*
+		 * 
 		// creating a session factory and a session object for testing
 		// using the session factory also creates the tables in the DB
 		SessionFactory sf = ConnectionService.getSessionFactory();
@@ -66,6 +63,7 @@ public class Driver {
 		// committing and releasing resources 
 		tx.commit();
 		s.close();
+		 */
 
 	}
 
