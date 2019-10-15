@@ -8,6 +8,9 @@ import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { GameComponent } from './game/game.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginserviceService } from './loginservice.service';
+import { HttpClientModule } from '@angular/common/http';
 //import { BestScoreManager } from './game/game.storage.service';
 
 const appRoutes: Routes = [
@@ -20,16 +23,18 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    GameComponent
+    GameComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [LoginserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
