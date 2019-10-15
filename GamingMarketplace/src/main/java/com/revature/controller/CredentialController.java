@@ -16,7 +16,7 @@ import com.revature.model.Player;
 import com.revature.service.CredentialService;
 
 @Controller
-@RequestMapping(value = { "/credential","/login"})
+@RequestMapping(value = { "/credential", "/login" })
 public class CredentialController {
 
 	private CredentialService credentialService;
@@ -31,20 +31,19 @@ public class CredentialController {
 	public ResponseEntity<List<Credential>> getAll() {
 		return new ResponseEntity<>(this.credentialService.getAll(), HttpStatus.OK);
 	}
-	
-	//.
-	//returns the player profile if the credentials are correct
+
+	// .
+	// returns the player profile if the credentials are correct
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Player> getLogin(@RequestParam String username, String password) {
 		Player player = credentialService.login(username, password);
-		if(player != null) {
+		if (player != null) {
 			return new ResponseEntity<Player>(player, HttpStatus.OK);
-		}else {
-			return new ResponseEntity<Player>(player,HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<Player>(player, HttpStatus.BAD_REQUEST);
 		}
-		
-		
+
 	}
 
 }
