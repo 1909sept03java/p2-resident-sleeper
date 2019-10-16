@@ -70,7 +70,7 @@ export class GameComponent implements OnInit {
     return COLORS.BOARD;
   };
 
-  updatePositions(): 
+  updatePositions(): void {
     let newHead = this.repositionHead();
     let me = this;
 
