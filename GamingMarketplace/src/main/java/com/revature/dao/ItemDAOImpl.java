@@ -57,7 +57,7 @@ public class ItemDAOImpl implements ItemDAO {
 		boolean isUpdated = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			String hql = "Update Player Set NAME =: name, VALUE =: value, ITEM_FILENAME =: itemFilename Where ITEM_ID =: itemId";
+			String hql = "Update Item Set NAME =: name, VALUE =: value, ITEM_FILENAME =: itemFilename Where ITEM_ID =: itemId";
 			Query query = s.createQuery(hql);
 			query.setParameter("name", item.getName());
 			query.setParameter("value", item.getValue());
