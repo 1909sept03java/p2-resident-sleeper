@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -16,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="PLAYER_ITEM")
+@Table(name = "PLAYER_ITEM")
 @Component // creates the playerItem spring bean
 public class PlayerItem {
 
@@ -25,15 +26,13 @@ public class PlayerItem {
 	@SequenceGenerator(allocationSize = 1, name = "playerItemSequence", sequenceName = "SQ_PLAYER_ITEM_PK")
 	@Column(name = "PLAYER_ITEM_ID")
 	private int playerItemId; // primary key for the player item table
-	@Column(name = "NAME")
-	private String name; // name of the item
-	@Column(name = "VALUE")
-	private int value; // value of the item
-	@Column(name = "ITEM_FILENAME")
-	private String itemFilename; // item image filename
 	@Column(name = "FOR_SALE")
 	private boolean forSale; // if true then it is for sale
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	@OneToOne
+	@JoinColumn(name = "ITEM_ID")
+	@Autowired // spring bean
+	private Item item;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "PLAYER_ID")
 	@Autowired // spring bean
 	private Player player; // tying the player table to the player item table via playerId
@@ -48,36 +47,20 @@ public class PlayerItem {
 		this.playerItemId = playerItemId;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getValue() {
-		return value;
-	}
-
-	public void setValue(int value) {
-		this.value = value;
-	}
-
-	public String getItemFilename() {
-		return itemFilename;
-	}
-
-	public void setItemFilename(String itemFilename) {
-		this.itemFilename = itemFilename;
-	}
-
 	public boolean isForSale() {
 		return forSale;
 	}
 
 	public void setForSale(boolean forSale) {
 		this.forSale = forSale;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 	public Player getPlayer() {
@@ -93,11 +76,9 @@ public class PlayerItem {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (forSale ? 1231 : 1237);
-		result = prime * result + ((itemFilename == null) ? 0 : itemFilename.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((item == null) ? 0 : item.hashCode());
 		result = prime * result + ((player == null) ? 0 : player.hashCode());
 		result = prime * result + playerItemId;
-		result = prime * result + value;
 		return result;
 	}
 
@@ -112,15 +93,10 @@ public class PlayerItem {
 		PlayerItem other = (PlayerItem) obj;
 		if (forSale != other.forSale)
 			return false;
-		if (itemFilename == null) {
-			if (other.itemFilename != null)
+		if (item == null) {
+			if (other.item != null)
 				return false;
-		} else if (!itemFilename.equals(other.itemFilename))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
+		} else if (!item.equals(other.item))
 			return false;
 		if (player == null) {
 			if (other.player != null)
@@ -129,33 +105,27 @@ public class PlayerItem {
 			return false;
 		if (playerItemId != other.playerItemId)
 			return false;
-		if (value != other.value)
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "PlayerItem [playerItemId=" + playerItemId + ", name=" + name + ", value=" + value + ", itemFilename="
-				+ itemFilename + ", forSale=" + forSale + ", player=" + player + "]";
+		return "PlayerItem [playerItemId=" + playerItemId + ", forSale=" + forSale + ", item=" + item + ", player="
+				+ player + "]";
 	}
 
-	public PlayerItem(int playerItemId, String name, int value, String itemFilename, boolean forSale, Player player) {
+	public PlayerItem(int playerItemId, boolean forSale, Item item, Player player) {
 		super();
 		this.playerItemId = playerItemId;
-		this.name = name;
-		this.value = value;
-		this.itemFilename = itemFilename;
 		this.forSale = forSale;
+		this.item = item;
 		this.player = player;
 	}
 
-	public PlayerItem(String name, int value, String itemFilename, boolean forSale, Player player) {
+	public PlayerItem(boolean forSale, Item item, Player player) {
 		super();
-		this.name = name;
-		this.value = value;
-		this.itemFilename = itemFilename;
 		this.forSale = forSale;
+		this.item = item;
 		this.player = player;
 	}
 
