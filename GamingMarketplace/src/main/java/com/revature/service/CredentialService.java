@@ -48,5 +48,10 @@ public class CredentialService {
 	public Player login(String username, String password) {
 		return this.credentialDAO.login(username, password);
 	}
-
+	
+	//.
+	//returns true if the username is already in the database
+	public boolean isUniqueUsername(String username) {
+		return this.credentialDAO.isUniqueUsername(username);
+	}
 }

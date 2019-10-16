@@ -37,11 +37,24 @@ public class CredentialController {
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Player> getLogin(@RequestParam String username, String password) {
-		Player player = credentialService.login(username, password);
+		Player player = this.credentialService.login(username, password);
 		if (player != null) {
 			return new ResponseEntity<Player>(player, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Player>(player, HttpStatus.BAD_REQUEST);
+		}
+
+	}
+
+	//.
+	//returns true if the username is already in the database
+	@ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/isuniqueusername", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> isUniqueUsername(@RequestParam String username) {
+		if (this.credentialService.isUniqueUsername(username)) {
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(false, HttpStatus.OK);
 		}
 
 	}

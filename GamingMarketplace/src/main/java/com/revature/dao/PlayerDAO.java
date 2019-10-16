@@ -8,9 +8,8 @@ public interface PlayerDAO {
 
 	// this method returns a list of all player's
 	public List<Player> getAll();
-	
+
 	// this method returns a row in the player table
-	//modified by Tomi
 	public Player getPlayerById(int playerId);
 
 	// this method adds a row into the player table
@@ -21,5 +20,11 @@ public interface PlayerDAO {
 
 	// this method deletes a row in the player table
 	public boolean deletePlayer(Player player);
-	
+
+	// this will update the avatar of the player
+	public boolean updateAvatar(int playerId, String avatarFilename);
+
+	// this will return true if the email is available in the database
+	public boolean isEmailUnique(String email);
+
 }

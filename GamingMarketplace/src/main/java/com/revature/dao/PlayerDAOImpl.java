@@ -3,6 +3,8 @@ package com.revature.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
@@ -92,6 +94,41 @@ public class PlayerDAOImpl implements PlayerDAO {
 			isDeleted = true;
 		}
 		return isDeleted;
+	}
+
+	@Override
+	public boolean updateAvatar(int playerId, String avatarFilename) {
+		try (Session s = sf.openSession()) {
+			Transaction tx = s.beginTransaction();
+			Player player = s.get(Player.class, playerId);
+			String hql = "Update Player Set AVATAR_FILENAME =: avatarFilename Where PLAYER_ID =: playerId";
+			Query query = s.createQuery(hql);
+			query.setParameter("avatarFilename", avatarFilename);
+			query.setParameter("playerId", playerId);
+			query.executeUpdate();
+			tx.commit();
+			s.close();
+			return true;
+		}
+
+	}
+
+	@Override
+	public boolean isEmailUnique(String email) {
+		Player player = null;
+		try (Session s = sf.openSession()) {
+			String hql = "from Player where EMAIL =: email";
+			Query query = s.createQuery(hql);
+			query.setParameter("email", email.toLowerCase());
+			player = (Player) query.getSingleResult();
+			s.close();
+			return true;
+
+		} catch (NoResultException e) {
+			return false;
+		} catch (NonUniqueResultException e) {
+			return false;
+		}
 	}
 
 }
