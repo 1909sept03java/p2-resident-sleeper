@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
@@ -100,6 +101,25 @@ public class CredentialDAOImpl implements CredentialDAO {
 			isDeleted = true;
 		}
 		return isDeleted;
+	}
+
+	@Override
+	public boolean isUniqueUsername(String username) {
+		Credential credential = null;
+		try (Session s = sf.openSession()) {
+			String hql = "from Credential where username =: username";
+			Query query = s.createQuery(hql);
+			query.setParameter("username", username.toLowerCase());
+			credential = (Credential) query.getSingleResult();
+			s.close();
+			return true;
+			
+		}catch(NoResultException e) {
+			return false;
+		}catch(NonUniqueResultException e) {
+			return false;
+		}
+		
 	}
 
 }

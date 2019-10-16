@@ -24,5 +24,9 @@ public interface CredentialDAO {
 
 	// Returns the player object if the login is successful or null if doesn't match
 	public Player login(String username, String password);
+	
+	//.
+	//returns true if the username is already in the database
+	public boolean isUniqueUsername(String username);
 
 }

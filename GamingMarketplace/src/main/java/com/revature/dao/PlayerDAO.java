@@ -26,4 +26,8 @@ public interface PlayerDAO {
 	//this will update the avatar of the
 	public boolean updateAvatar(int playerId,String avatarFilename);
 	
+	//.
+	//this will return true if the email is available in the database
+	public boolean isEmailUnique(String email);
+	
 }

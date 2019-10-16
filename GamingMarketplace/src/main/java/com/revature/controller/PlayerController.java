@@ -41,6 +41,16 @@ public class PlayerController {
 		return new ResponseEntity<>(this.playerService.getPlayerById(playerId), HttpStatus.OK);
 	}
 
+	//.
+	//this will return true if the email is available in the database
+	@ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/isemailunique", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> isEmailUnique(@RequestParam String email) {
+		if(this.playerService.isEmailUnique(email))
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		else return new ResponseEntity<>(false, HttpStatus.OK);
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Player> getPlayerById(@PathVariable int id) {
