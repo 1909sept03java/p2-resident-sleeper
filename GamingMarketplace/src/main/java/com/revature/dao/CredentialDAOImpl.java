@@ -107,19 +107,19 @@ public class CredentialDAOImpl implements CredentialDAO {
 	public boolean isUniqueUsername(String username) {
 		Credential credential = null;
 		try (Session s = sf.openSession()) {
-			String hql = "from Credential where username =: username";
+			String hql = "from Credential Where USERNAME =: username";
 			Query query = s.createQuery(hql);
 			query.setParameter("username", username.toLowerCase());
 			credential = (Credential) query.getSingleResult();
 			s.close();
-			return true;
-			
-		}catch(NoResultException e) {
+			if (credential.getCredentialId() != 0)
+				return true;
+		} catch (NoResultException e) {
 			return false;
-		}catch(NonUniqueResultException e) {
+		} catch (NonUniqueResultException e) {
 			return false;
 		}
-		
+		return false;
 	}
 
 }
