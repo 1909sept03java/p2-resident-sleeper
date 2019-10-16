@@ -28,7 +28,7 @@ public class PlayerItem {
 	private int playerItemId; // primary key for the player item table
 	@Column(name = "FOR_SALE")
 	private boolean forSale; // if true then it is for sale
-	@OneToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "ITEM_ID")
 	@Autowired // spring bean
 	private Item item;

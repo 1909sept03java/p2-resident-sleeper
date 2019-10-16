@@ -148,23 +148,6 @@ public class Driver {
 		s.save(sudiptaCred);
 		s.save(tomiCred);
 
-		// adding rex's player item
-		s.save(rexPlayerItem);
-		s.save(rexPlayerItem2);
-		s.save(rexPlayerItem3);
-
-		s.save(gurvirPlayerItem);
-		s.save(gurvirPlayerItem2);
-		s.save(gurvirPlayerItem3);
-
-		s.save(sudiptaPlayerItem);
-		s.save(sudiptaPlayerItem2);
-		s.save(sudiptaPlayerItem3);
-
-		s.save(tomiPlayerItem);
-		s.save(tomiPlayerItem2);
-		s.save(tomiPlayerItem3);
-
 		// adding whisper to the item marketplace
 		s.save(oblivionAndOathKeeper);
 		s.save(diamondArmor);
@@ -183,6 +166,23 @@ public class Driver {
 		s.save(helmet);
 		s.save(bat);
 		s.save(gloves);
+
+		// adding rex's player item
+		s.save(rexPlayerItem);
+		s.save(rexPlayerItem2);
+		s.save(rexPlayerItem3);
+
+		s.save(gurvirPlayerItem);
+		s.save(gurvirPlayerItem2);
+		s.save(gurvirPlayerItem3);
+
+		s.save(sudiptaPlayerItem);
+		s.save(sudiptaPlayerItem2);
+		s.save(sudiptaPlayerItem3);
+
+		/*
+		 * s.save(tomiPlayerItem); s.save(tomiPlayerItem2); s.save(tomiPlayerItem3);
+		 */
 
 		// adding that rex bought whisper
 		s.save(rexAct);
