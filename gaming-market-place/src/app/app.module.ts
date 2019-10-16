@@ -11,13 +11,17 @@ import { GameComponent } from './game/game.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginserviceService } from './loginservice.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MarketComponent } from './market/market.component';
+import { ChestComponent } from './chest/chest.component';
 //import { BestScoreManager } from './game/game.storage.service';
 
 const appRoutes: Routes = [
   { path: '',      component: LoginComponent },
   { path: 'login',      component: LoginComponent },
   { path: 'game',      component: GameComponent },
-  {  path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'market', component: MarketComponent },
+  { path: 'chest', component: ChestComponent }
 ];
 
 @NgModule({
@@ -25,7 +29,9 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     GameComponent,
-    ProfileComponent
+    ProfileComponent,
+    MarketComponent,
+    ChestComponent
   ],
   imports: [
     BrowserModule,

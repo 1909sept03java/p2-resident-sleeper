@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     let pos: number = -1;
     let dLen: number = 0;
     this.loginService.fetchPlayer().subscribe((data)=>{
-      console.log(data);
       dLen = Object.keys(data).length;
       for (let i = 0; i < dLen; i ++) {
         if(this.username == data[i].username && this.password == data[i].password) {

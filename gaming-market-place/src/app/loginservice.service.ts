@@ -23,4 +23,11 @@ export class LoginserviceService {
 
   }
 
+  public fetchPlayerById() {
+    let id: string;
+    this.currentMessage.subscribe(message => id = message);
+    let playUrl = 'http://localhost:8082/GamingMarketplace/player/' + id;
+    return this.httpClient.get(playUrl);
+  }
+
 }
