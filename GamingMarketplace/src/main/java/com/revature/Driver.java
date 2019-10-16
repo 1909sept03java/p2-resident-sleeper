@@ -23,7 +23,7 @@ public class Driver {
 		Player rex = new Player("rex@example.com", "rex", "cruz", "rex.png", 100, 0);
 		System.out.println(rex.toString());
 
-		Player gurvir = new Player("guvir@example.com", "guvir", "singh", "guvir.png", 100, 0);
+		Player gurvir = new Player("gurvir@example.com", "gurvir", "singh", "gurvir.png", 100, 0);
 		System.out.println(gurvir.toString());
 
 		Player sudipta = new Player("sudipta@example.com", "sudipta", "saha", "sudipta.png", 100, 0);
@@ -44,36 +44,6 @@ public class Driver {
 
 		Credential tomiCred = new Credential("tomi16", "tomipass", tomi);
 		System.out.println(tomiCred.toString());
-
-		// creating a random item that rex owns
-		PlayerItem rexPlayerItem = new PlayerItem("Diamond Sword", 14, "diamondSword.png", false, rex);
-		System.out.println(rexPlayerItem);
-		PlayerItem rexPlayerItem2 = new PlayerItem("Diamond Armor", 15, "diamondArmor.png", false, rex);
-		System.out.println(rexPlayerItem2);
-		PlayerItem rexPlayerItem3 = new PlayerItem("Oblivion and Oathkeeper", 20, "oblivionAndOathkeeper.png", false,
-				rex);
-		System.out.println(rexPlayerItem3);
-
-		PlayerItem gurvirPlayerItem = new PlayerItem("Neil's Bat", 15, "neilBat.png", false, gurvir);
-		System.out.println(gurvirPlayerItem);
-		PlayerItem gurvirPlayerItem2 = new PlayerItem("Claw", 10, "claw.png", false, gurvir);
-		System.out.println(gurvirPlayerItem2);
-		PlayerItem gurvirPlayerItem3 = new PlayerItem("Whisper of the Wyrm", 25, "whisper.png", false, gurvir);
-		System.out.println(gurvirPlayerItem3);
-
-		PlayerItem sudiptaPlayerItem = new PlayerItem("Unhappy Face", 9, "unhappy.png", false, sudipta);
-		System.out.println(sudiptaPlayerItem);
-		PlayerItem sudiptaPlayerItem2 = new PlayerItem("Green Ball", 10, "greenBall.png", false, sudipta);
-		System.out.println(sudiptaPlayerItem2);
-		PlayerItem sudiptaPlayerItem3 = new PlayerItem("Earth Ball", 8, "earthBall.png", false, sudipta);
-		System.out.println(sudiptaPlayerItem3);
-
-		PlayerItem tomiPlayerItem = new PlayerItem("tomiItem1", 5, "tomiItem1.png", false, tomi);
-		System.out.println(tomiPlayerItem);
-		PlayerItem tomiPlayerItem2 = new PlayerItem("tomiItem2", 5, "tomiItem2.png", false, tomi);
-		System.out.println(tomiPlayerItem2);
-		PlayerItem tomiPlayerItem3 = new PlayerItem("tomiItem3", 5, "tomiItem3.png", false, tomi);
-		System.out.println(tomiPlayerItem3);
 
 		// creating a random item in the marketplace
 		Item oblivionAndOathKeeper = new Item("Oblivion and Oathkeeper", 20, "oblivionAndOathkeeper.png");
@@ -108,6 +78,35 @@ public class Driver {
 		System.out.println(bat);
 		Item gloves = new Item("Gloves", 8, "gloves.png");
 		System.out.println(gloves);
+
+		// creating a random item that rex owns
+		PlayerItem rexPlayerItem = new PlayerItem(false, diamondSword, rex);
+		System.out.println(rexPlayerItem);
+		PlayerItem rexPlayerItem2 = new PlayerItem(false, diamondArmor, rex);
+		System.out.println(rexPlayerItem2);
+		PlayerItem rexPlayerItem3 = new PlayerItem(false, oblivionAndOathKeeper, rex);
+		System.out.println(rexPlayerItem3);
+
+		PlayerItem gurvirPlayerItem = new PlayerItem(false, bat, gurvir);
+		System.out.println(gurvirPlayerItem);
+		PlayerItem gurvirPlayerItem2 = new PlayerItem(false, claw, gurvir);
+		System.out.println(gurvirPlayerItem2);
+		PlayerItem gurvirPlayerItem3 = new PlayerItem(false, whisperOfTheWyrm, gurvir);
+		System.out.println(gurvirPlayerItem3);
+
+		PlayerItem sudiptaPlayerItem = new PlayerItem(false, unhappyFaceBall, sudipta);
+		System.out.println(sudiptaPlayerItem);
+		PlayerItem sudiptaPlayerItem2 = new PlayerItem(false, greenBall, sudipta);
+		System.out.println(sudiptaPlayerItem2);
+		PlayerItem sudiptaPlayerItem3 = new PlayerItem(false, earthBall, sudipta);
+		System.out.println(sudiptaPlayerItem3);
+
+		PlayerItem tomiPlayerItem = new PlayerItem(false, new Item("tomiItem1", 5, "tomiItem1.png"), tomi);
+		System.out.println(tomiPlayerItem);
+		PlayerItem tomiPlayerItem2 = new PlayerItem(false, new Item("tomiItem2", 5, "tomiItem2.png"), tomi);
+		System.out.println(tomiPlayerItem2);
+		PlayerItem tomiPlayerItem3 = new PlayerItem(false, new Item("tomiItem3", 5, "tomiItem3.png"), tomi);
+		System.out.println(tomiPlayerItem3);
 
 		// creating a random activity
 		Activity rexAct = new Activity("Bought", diamondSword, rex);
@@ -149,23 +148,6 @@ public class Driver {
 		s.save(sudiptaCred);
 		s.save(tomiCred);
 
-		// adding rex's player item
-		s.save(rexPlayerItem);
-		s.save(rexPlayerItem2);
-		s.save(rexPlayerItem3);
-
-		s.save(gurvirPlayerItem);
-		s.save(gurvirPlayerItem2);
-		s.save(gurvirPlayerItem3);
-
-		s.save(sudiptaPlayerItem);
-		s.save(sudiptaPlayerItem2);
-		s.save(sudiptaPlayerItem3);
-
-		s.save(tomiPlayerItem);
-		s.save(tomiPlayerItem2);
-		s.save(tomiPlayerItem3);
-
 		// adding whisper to the item marketplace
 		s.save(oblivionAndOathKeeper);
 		s.save(diamondArmor);
@@ -184,6 +166,23 @@ public class Driver {
 		s.save(helmet);
 		s.save(bat);
 		s.save(gloves);
+
+		// adding rex's player item
+		s.save(rexPlayerItem);
+		s.save(rexPlayerItem2);
+		s.save(rexPlayerItem3);
+
+		s.save(gurvirPlayerItem);
+		s.save(gurvirPlayerItem2);
+		s.save(gurvirPlayerItem3);
+
+		s.save(sudiptaPlayerItem);
+		s.save(sudiptaPlayerItem2);
+		s.save(sudiptaPlayerItem3);
+
+		/*
+		 * s.save(tomiPlayerItem); s.save(tomiPlayerItem2); s.save(tomiPlayerItem3);
+		 */
 
 		// adding that rex bought whisper
 		s.save(rexAct);
