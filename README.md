@@ -23,6 +23,25 @@
 * Game coded by Samir Hodzic
 * Link to his repository: github.com/SamirHodzic/ngx-snake
 
+## Controllers
+Checking if the email is available in the database.. will return true if it's in side the database
+It's a POST method, takes the email with variable name 'email'
+http://localhost:8082/GamingMarketplace/player/isemailunique
+
+
+Checking if the username is available in the database.. will return true if it's in side the database
+It's a POST method, takes the username with variable name username 
+http://localhost:8082/GamingMarketplace/credential/isuniqueusername
+
+Will update the profile picture aka filename in the database. will retun the player obj too. 
+It's a post method which will take the player id as 'playerId' and filename as 'avatarFilename'
+http://localhost:8082/GamingMarketplace/player/updateavatar
+
+This will deduct the balance and also update the PlayerItem and Activity table
+It's a post method which will take the player id as 'playerId' and the item id as 'itemId'
+http://localhost:8082/GamingMarketplace/player/deductbalace
+
+
 ## Branching
 
 * Check to see if you have the dev-rex branch  
