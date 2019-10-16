@@ -61,6 +61,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 			Query query = s.createQuery(hql);
 			query.setParameter("type", activity.getType());
 			query.setParameter("itemId", activity.getItem().getItemId());
+			query.setParameter("itemId", activity.getPlayer().getplayerId());
 			query.setParameter("activityId", activity.getActivityId());
 			query.executeUpdate();
 			tx.commit();
