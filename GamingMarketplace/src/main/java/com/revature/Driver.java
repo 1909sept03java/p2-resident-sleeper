@@ -23,7 +23,7 @@ public class Driver {
 		Player rex = new Player("rex@example.com", "rex", "cruz", "rex.png", 100, 0);
 		System.out.println(rex.toString());
 
-		Player gurvir = new Player("guvir@example.com", "guvir", "singh", "guvir.png", 100, 0);
+		Player gurvir = new Player("gurvir@example.com", "gurvir", "singh", "gurvir.png", 100, 0);
 		System.out.println(gurvir.toString());
 
 		Player sudipta = new Player("sudipta@example.com", "sudipta", "saha", "sudipta.png", 100, 0);
