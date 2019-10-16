@@ -61,5 +61,15 @@ public class PlayerController {
 			return new ResponseEntity<>(player, HttpStatus.OK);
 		}
 	}
+	
+	//.
+	//this will deduct the balance and also update the PlayerItem and Activity table
+	@ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/deductbalace", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> deductBalace(@RequestParam int playerId, int itemId) {
+		if(this.playerService.deductBalace(playerId, itemId))
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		else return new ResponseEntity<>(false, HttpStatus.OK);
+	}
 
 }
