@@ -12,21 +12,19 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Activity;
 import com.revature.model.Player;
 import com.revature.model.PlayerItem;
 
-
 @Repository(value = "playerItemDAO")
 public class PlayerItemDAOImpl implements PlayerItemDAO {
-	
+
 	private SessionFactory sf;
 
 	@Autowired // constructor injection
 	public PlayerItemDAOImpl(SessionFactory sf) {
 		this.sf = sf;
 	}
-	
+
 	@Override
 	public List<PlayerItem> getAll() {
 		List<PlayerItem> playerItemList = new ArrayList<>();
@@ -46,7 +44,7 @@ public class PlayerItemDAOImpl implements PlayerItemDAO {
 			query.setParameter("playerId", playerId);
 			playerItemList = query.getResultList();
 			return playerItemList;
-		}catch(NoResultException e) {
+		} catch (NoResultException e) {
 			return null;
 		}
 	}
@@ -60,7 +58,7 @@ public class PlayerItemDAOImpl implements PlayerItemDAO {
 			tx.commit();
 			isAdded = true;
 		}
-		return isAdded;	
+		return isAdded;
 	}
 
 	@Override
@@ -68,18 +66,17 @@ public class PlayerItemDAOImpl implements PlayerItemDAO {
 		boolean isUpdated = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			String hql = "Update PlayerItem Set NAME =: name, VALUE =: value, ITEM_FILENAME =: itemFilename, FOR_SALE =: forSale, PLAYER_ID =: playerId Where PLAYER_ITEM_ID =: playerItemId";
+			String hql = "Update PlayerItem Set FOR_SALE =: forSale, ITEM_ID =: itemId, PLAYER_ID =: playerId Where PLAYER_ITEM_ID =: playerItemId";
 			Query query = s.createQuery(hql);
-			query.setParameter("name", playerItem.getName());
-			query.setParameter("value", playerItem.getValue());
-			query.setParameter("itemFilename", playerItem.getItemFilename());
 			query.setParameter("forSale", playerItem.isForSale());
+			query.setParameter("itemId", playerItem.getItem().getItemId());
 			query.setParameter("playerId", playerItem.getPlayer().getplayerId());
+			query.setParameter("playerItemId", playerItem.getPlayerItemId());
 			query.executeUpdate();
 			tx.commit();
 			isUpdated = true;
 		}
-		return isUpdated;		
+		return isUpdated;
 	}
 
 	@Override
