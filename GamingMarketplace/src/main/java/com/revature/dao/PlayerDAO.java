@@ -22,4 +22,8 @@ public interface PlayerDAO {
 	// this method deletes a row in the player table
 	public boolean deletePlayer(Player player);
 	
+	//.
+	//this will update the avatar of the
+	public boolean updateAvatar(int playerId,String avatarFilename);
+	
 }

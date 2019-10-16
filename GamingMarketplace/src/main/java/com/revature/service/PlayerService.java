@@ -45,6 +45,11 @@ public class PlayerService {
 	public boolean deletePlayer(Player player) {
 		return this.playerDAO.deletePlayer(player);
 	}
-
+	
+	//.
+	//this will update the avatar of the
+	public boolean updateAvatar(int playerId,String avatarFilename) {
+		return this.playerDAO.updateAvatar(playerId, avatarFilename);
+	}
 }
 
