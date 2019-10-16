@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   { path: '',      component: LoginComponent },
   { path: 'login',      component: LoginComponent },
-  { path: 'game',      component: GameComponent }
+  { path: 'game',      component: GameComponent },
+  {  path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [LoginserviceService],
+  providers: [LoginserviceService, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
