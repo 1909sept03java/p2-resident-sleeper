@@ -14,10 +14,14 @@
 
 ## Angular Application Setup
 
-* cd into p2-resident-sleeper/gaming-market-place/ 
+* cd into p2-resident-sleeper/gaming-market-place/
+* Use npm install --save @angular/material @angular/cdk @angular/animations to be able to use Angular Material 
 * Run the command ng build 
+* Download Allow CORS: extension for chrome
+* https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en
+* Turn it on by clicking it in the right corner. 
+* Turn it off when you are done serving the application.
 * Use ng serve to access it via the localhost
-* Use npm install --save @angular/material @angular/cdk @angular/animations to be able to use Angular Material
 
 ## Snake Eater Game
 * Game coded by Samir Hodzic

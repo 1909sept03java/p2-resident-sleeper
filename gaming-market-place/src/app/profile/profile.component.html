@@ -1,1 +1,30 @@
-<p>profile works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Profile</span>
+            <span class="example-fill-remaining-space"></span>
+            <span class="align-center"></span>
+            <span class="example-spacer"></span>
+            <button mat-button id="myButton" routerLink='/game'>Log Out</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<nav> 
+        <button routerLink='/profile'>Home</button>
+        <button routerLink='/game'>Game</button>
+        <button routerLink='/market'>Market</button>
+        <button routerLink='/chest'>Chest</button>
+</nav>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{fName}} {{lName}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <img src={{av}}>
+        <br>
+        Email: {{email}}
+        <br>
+        Coins: {{coins}}
+        <br>
+        Minutes Spent: {{minutes}}
+        <br>
+     </mat-card-content>   
+  </mat-card>
