@@ -57,5 +57,11 @@ public class PlayerService {
 	public boolean isEmailUnique(String email) {
 		return this.playerDAO.isEmailUnique(email);
 	}
+	
+	//.
+	//this will deduct the balance and also update the PlayerItem and Activity table
+	public boolean deductBalace(int playerId, int itemId) {
+		return this.playerDAO.deductBalace(playerId, itemId);
+	}
 }
 

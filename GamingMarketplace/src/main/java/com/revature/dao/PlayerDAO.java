@@ -26,5 +26,7 @@ public interface PlayerDAO {
 
 	// this will return true if the email is available in the database
 	public boolean isEmailUnique(String email);
-
+	//.
+	//this will deduct the balance and also update the PlayerItem and Activity table
+	public boolean deductBalace(int playerId, int itemId);
 }
