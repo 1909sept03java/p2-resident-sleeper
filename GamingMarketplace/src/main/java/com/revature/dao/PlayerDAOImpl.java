@@ -97,22 +97,20 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public boolean updateAvatar(int playerId,String avatarFilename) {
+	public boolean updateAvatar(int playerId, String avatarFilename) {
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
 			Player player = s.get(Player.class, playerId);
 			String hql = "Update Player Set AVATAR_FILENAME =: avatarFilename Where PLAYER_ID =: playerId";
 			Query query = s.createQuery(hql);
-			query.setParameter("avatarFilename", avatarFilename );
+			query.setParameter("avatarFilename", avatarFilename);
 			query.setParameter("playerId", playerId);
 			query.executeUpdate();
 			tx.commit();
-			//System.out.println(s.getStatistics());
-			
 			s.close();
 			return true;
 		}
-		
+
 	}
 
 	@Override
@@ -125,10 +123,10 @@ public class PlayerDAOImpl implements PlayerDAO {
 			player = (Player) query.getSingleResult();
 			s.close();
 			return true;
-			
-		}catch(NoResultException e) {
+
+		} catch (NoResultException e) {
 			return false;
-		}catch(NonUniqueResultException e) {
+		} catch (NonUniqueResultException e) {
 			return false;
 		}
 	}
