@@ -60,8 +60,8 @@ public class PlayerService {
 	
 	//.
 	//this will deduct the balance and also update the PlayerItem and Activity table
-	public boolean deductBalace(int playerId, int itemId) {
-		return this.playerDAO.deductBalace(playerId, itemId);
+	public boolean deductBalance(int playerId, int itemId) {
+		return this.playerDAO.deductBalance(playerId, itemId);
 	}
 }
 

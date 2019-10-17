@@ -137,7 +137,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 	//.
 	//this will deduct the balance and also update the PlayerItem table
 	@Override
-	public boolean deductBalace(int playerId, int itemId) {
+	public boolean deductBalance(int playerId, int itemId) {
 		Player player = null;
 		Item item = null;
 		try (Session s = sf.openSession()) {
