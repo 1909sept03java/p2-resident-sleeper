@@ -31,7 +31,7 @@ public class PlayerController {
 	public ResponseEntity<List<Player>> getAll() {
 		return new ResponseEntity<>(this.playerService.getAll(), HttpStatus.OK);
 	}
-	
+
 	//.
 	//this will update the avatar of the user
 	@ResponseBody // tells spring to skip ViewResolver
@@ -50,7 +50,7 @@ public class PlayerController {
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Player> getPlayerById(@PathVariable int id) {
@@ -61,13 +61,23 @@ public class PlayerController {
 			return new ResponseEntity<>(player, HttpStatus.OK);
 		}
 	}
-	
+
 	//.
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/deductbalace", method = RequestMethod.POST)
 	public ResponseEntity<Boolean> deductBalace(@RequestParam int playerId, int itemId) {
 		if(this.playerService.deductBalace(playerId, itemId))
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		else return new ResponseEntity<>(false, HttpStatus.OK);
+	}
+
+	//.
+	//this will deduct the balance and also update the PlayerItem and Activity table
+	@ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/balanceafterlogout", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> balanceAfterLogout(@RequestParam int playerId, int coins) {
+		if(this.playerService.balanceAfterLogout(playerId, coins))
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);
 	}

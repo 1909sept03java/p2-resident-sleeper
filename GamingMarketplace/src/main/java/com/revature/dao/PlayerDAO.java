@@ -29,4 +29,11 @@ public interface PlayerDAO {
 	//.
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	public boolean deductBalace(int playerId, int itemId);
+	
+	//.
+	//this will update the balance after logout
+	public boolean balanceAfterLogout(int playerId, int coins);
+	//.
+	//this will update the balance and also update the PlayerItem and Activity table
+	public boolean updateAfterSell(int playerId, int itemId);
 }

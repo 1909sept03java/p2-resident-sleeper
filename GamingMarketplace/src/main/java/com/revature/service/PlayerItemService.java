@@ -48,5 +48,11 @@ public class PlayerItemService {
 	public PlayerItem getPlayerItemById(int playerItemId) {
 		return this.playerItemDAO.getPlayerItemById(playerItemId);
 	}
-	
+
+	//this will return the list of the items owned by a player
+	public List<PlayerItem> getSpecific(int playerId) {
+		return this.playerItemDAO.getSpecific(playerId);
+	}
+
+
 }

@@ -45,23 +45,29 @@ public class PlayerService {
 	public boolean deletePlayer(Player player) {
 		return this.playerDAO.deletePlayer(player);
 	}
-	
+
 	//.
 	//this will update the avatar of the
 	public boolean updateAvatar(int playerId,String avatarFilename) {
 		return this.playerDAO.updateAvatar(playerId, avatarFilename);
 	}
-	
+
 	//.
 	//this will return true if the email is available in the database
 	public boolean isEmailUnique(String email) {
 		return this.playerDAO.isEmailUnique(email);
 	}
-	
+
 	//.
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	public boolean deductBalace(int playerId, int itemId) {
 		return this.playerDAO.deductBalace(playerId, itemId);
+	}
+
+	//.
+	//this will update the balance after logout
+	public boolean balanceAfterLogout(int playerId, int coins) {
+		return this.playerDAO.balanceAfterLogout(playerId, coins);
 	}
 }
 
