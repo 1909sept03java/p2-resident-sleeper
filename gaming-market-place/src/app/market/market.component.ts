@@ -28,6 +28,7 @@ export class MarketComponent implements OnInit {
 
   buy() {
     let itemId = this.itId - 1;
+    console.log(this.playerId)
     this.buyservice.buyItem(this.playerId, itemId).subscribe(
         (val) => {
             console.log("POST call successful value returned in body", 
@@ -48,11 +49,7 @@ export class MarketComponent implements OnInit {
         length = this.items.push(new Item(data[i].itemId, data[i].name, data[i].value, this.ava + data[i].itemFilename))
         }
     });
-    this.loginService.fetchPlayerById().subscribe((response)=>{
-      this.playerInfo = response;
-      this.playerId = this.playerInfo.credentialId;
-      this.coins = this.playerInfo.coins;
-    });
+    this.loginService.currentMessage.subscribe(message => this.playerId = parseInt(message));
   }
 
 }
