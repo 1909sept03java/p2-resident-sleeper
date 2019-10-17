@@ -11,7 +11,7 @@ app/**/*.js
 app/**/*.js.map
 
 # Servers
-Server/
+Servers/
 # dependencies
 node_modules/
 bower_components/
