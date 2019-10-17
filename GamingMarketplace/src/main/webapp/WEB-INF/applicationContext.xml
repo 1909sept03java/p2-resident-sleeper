@@ -13,13 +13,6 @@
 	 http://www.springframework.org/schema/mvc 
 	 http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
-	<!-- this is replaced with @Component on top of bean to create spring bean 
-		<bean name="activityBean" class="com.revature.model.bean.Activity" /> <bean 
-		name="credentialBean" class="com.revature.model.bean.Credential" /> <bean 
-		name="itemBean" class="com.revature.model.bean.Item" /> <bean name="playerBean" 
-		class="com.revature.model.bean.Player" /> <bean name="playerItemBean" class="com.revature.model.bean.PlayerItem" 
-		/> -->
-
 	<context:component-scan
 		base-package="com.revature" />
 
@@ -28,7 +21,7 @@
 
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven />
-	
+
 	<!-- enable mapping of static resources -->
 	<mvc:resources location="/WEB-INF/static/"
 		mapping="/resources/**"></mvc:resources>
@@ -39,6 +32,5 @@
 		<property name="prefix" value="/WEB-INF/pages/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-
 
 </beans>
