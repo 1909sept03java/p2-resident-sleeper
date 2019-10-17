@@ -1,19 +1,20 @@
 package com.revature.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.Player;
-import com.revature.model.PlayerItem;
 import com.revature.service.PlayerService;
 
 @Controller
@@ -33,8 +34,6 @@ public class PlayerController {
 		return new ResponseEntity<>(this.playerService.getAll(), HttpStatus.OK);
 	}
 
-	//.
-	//this will update the avatar of the user
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/updateavatar", method = RequestMethod.POST)
 	public ResponseEntity<Player> updateAvatar(@RequestParam int playerId, String avatarFilename) {
@@ -67,8 +66,10 @@ public class PlayerController {
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/deductbalance", method = RequestMethod.POST)
-	public ResponseEntity<Boolean> deductBalance(@RequestParam PlayerItem playerItem) {
-		if(this.playerService.deductBalance(playerItem.getItem().getItemId(), playerItem.getPlayer().getplayerId()))
+	public ResponseEntity<Boolean> deductBalance(@RequestBody Map<String, Object> obj) {
+		int playerId = (int) obj.get("playerId");
+		int itemId = (int) obj.get("itemId");
+		if(this.playerService.deductBalance(playerId, itemId))
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);
 	}
