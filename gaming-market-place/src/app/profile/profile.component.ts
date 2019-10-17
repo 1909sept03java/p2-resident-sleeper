@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
   coins: string;
   minutes: string;
   ava: string = '/assets/images/';
-  av: string = this.ava + 'helmet.jpg';
   constructor(public loginService: LoginserviceService) { }
 
   ngOnInit() {
@@ -27,7 +26,7 @@ export class ProfileComponent implements OnInit {
       this.fName = this.playerInfo.firstname;
       this.lName = this.playerInfo.lastname;
       this.email = this.playerInfo.email;
-      this.avatar = this.playerInfo.avatarFilename;
+      this.avatar = this.ava + this.playerInfo.avatarFilename;
       this.coins = this.playerInfo.coins;
       this.minutes = this.playerInfo.minutes;
     });

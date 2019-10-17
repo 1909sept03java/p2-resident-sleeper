@@ -20,16 +20,16 @@ public class Driver {
 		// creating some model objects
 
 		// creating rex with 100 coins and 0 minutes play time Player rex = new
-		Player rex = new Player("rex@example.com", "rex", "cruz", "rex.png", 100, 0);
+		Player rex = new Player("rex@example.com", "rex", "cruz", "helmet.jpg", 100, 0);
 		System.out.println(rex.toString());
 
-		Player gurvir = new Player("gurvir@example.com", "gurvir", "singh", "gurvir.png", 100, 0);
+		Player gurvir = new Player("gurvir@example.com", "gurvir", "singh", "whisperOfTheWyrm.jpg", 100, 0);
 		System.out.println(gurvir.toString());
 
-		Player sudipta = new Player("sudipta@example.com", "sudipta", "saha", "sudipta.png", 100, 0);
+		Player sudipta = new Player("sudipta@example.com", "sudipta", "saha", "redBall.jpg", 100, 0);
 		System.out.println(sudipta.toString());
 
-		Player tomi = new Player("tomi@example.com", "tomi", "adegbenro", "tomi.png", 100, 0);
+		Player tomi = new Player("tomi@example.com", "tomi", "adegbenro", "unhappy.png", 100, 0);
 		System.out.println(tomi.toString());
 
 		// creating credential's for rex
