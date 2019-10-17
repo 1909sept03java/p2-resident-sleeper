@@ -48,3 +48,8 @@ nav button:hover {
     color: grey;
     border-bottom: solid grey;
 }
+img {
+    height: 300px;
+    width: 300px;
+    border: solid white;
+}
