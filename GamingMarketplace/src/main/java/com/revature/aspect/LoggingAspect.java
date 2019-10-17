@@ -11,24 +11,19 @@ import org.springframework.stereotype.Component;
 @Component // stereotype indicating that LoggingAspect is a Spring bean
 public class LoggingAspect {
 	
-	
 	// could create Logger as a bean and inject it
 	private static Logger log = Logger.getRootLogger();
-
-	// INFO log when a method is executed with no incident
-	// ERROR log when exception is thrown
-	// WARN log when "chase" is called (proof-of-concept for pattern matching)
 
 	// after any method in service package executes normally
 	@AfterReturning(pointcut = "within(com.revature.service.*)")
 	public void logAfterReturn(JoinPoint jp) {
-		System.out.println("in logAfterReturn");
+		System.out.println("in services! woot woot!");
 		log.info(jp.getSignature());
 	}
 	
 	@AfterReturning(pointcut = "within(com.revature.controller.*)")
 	public void logAfterControllerReturn(JoinPoint jp) {
-		System.out.println("in logAfterControllerReturn");
+		System.out.println("in controller! woot woot!");
 		log.info(jp.getSignature());
 	}
 
