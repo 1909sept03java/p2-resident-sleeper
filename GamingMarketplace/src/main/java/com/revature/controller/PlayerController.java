@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.Player;
+import com.revature.model.PlayerItem;
 import com.revature.service.PlayerService;
 
 @Controller
@@ -66,8 +67,8 @@ public class PlayerController {
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/deductbalance", method = RequestMethod.POST)
-	public ResponseEntity<Boolean> deductBalance(@RequestParam int playerId, int itemId) {
-		if(this.playerService.deductBalance(playerId, itemId))
+	public ResponseEntity<Boolean> deductBalance(@RequestParam PlayerItem playerItem) {
+		if(this.playerService.deductBalance(playerItem.getItem().getItemId(), playerItem.getPlayer().getplayerId()))
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);
 	}
