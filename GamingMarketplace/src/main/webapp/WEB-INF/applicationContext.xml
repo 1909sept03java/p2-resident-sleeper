@@ -24,9 +24,9 @@
 
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven />
-	
+
 	<!-- enable AOP annotations -->
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy /> 
 
 	<!-- enable mapping of static resources <mvc:resources location="/WEB-INF/static/" 
 		mapping="/resources/**"></mvc:resources> -->
