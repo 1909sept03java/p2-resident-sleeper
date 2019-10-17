@@ -26,5 +26,14 @@ public interface PlayerDAO {
 
 	// this will return true if the email is available in the database
 	public boolean isEmailUnique(String email);
-
+	//.
+	//this will deduct the balance and also update the PlayerItem and Activity table
+	public boolean deductBalance(int playerId, int itemId);
+	
+	//.
+	//this will update the balance after logout
+	public boolean balanceAfterLogout(int playerId, int coins);
+	//.
+	//this will update the balance and also update the PlayerItem and Activity table
+	public boolean updateAfterSell(int playerId, int itemId);
 }

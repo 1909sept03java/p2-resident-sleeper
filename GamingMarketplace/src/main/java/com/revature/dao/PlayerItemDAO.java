@@ -24,4 +24,9 @@ public interface PlayerItemDAO {
 
 	// this method deletes a row in the player table
 	public boolean deletePlayerItem(PlayerItem playerItem);
+	
+	//this will return the list of the items owned by a player
+	public List<PlayerItem> getSpecific(int playerId);
+	
 }
+

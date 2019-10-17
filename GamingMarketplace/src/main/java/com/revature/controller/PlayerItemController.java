@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.PlayerItem;
@@ -28,6 +29,12 @@ public class PlayerItemController {
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<PlayerItem>> getAll() {
 		return new ResponseEntity<>(this.playerItemService.getAll(), HttpStatus.OK);
+	}
+	
+	@ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/getspecific", method = RequestMethod.POST)
+	public ResponseEntity<List<PlayerItem>> getSpecific(@RequestParam int playerId) {
+		return new ResponseEntity<>(this.playerItemService.getSpecific(playerId), HttpStatus.OK);
 	}
 
 }

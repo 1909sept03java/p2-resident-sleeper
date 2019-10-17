@@ -13,6 +13,7 @@ import { LoginserviceService } from './loginservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MarketComponent } from './market/market.component';
 import { ChestComponent } from './chest/chest.component';
+import { BuyserviceService } from './buyservice.service';
 //import { BestScoreManager } from './game/game.storage.service';
 
 const appRoutes: Routes = [
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [LoginserviceService, LoginComponent],
+  providers: [LoginserviceService, LoginComponent, BuyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

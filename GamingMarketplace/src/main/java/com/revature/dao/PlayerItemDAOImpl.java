@@ -102,4 +102,18 @@ public class PlayerItemDAOImpl implements PlayerItemDAO {
 		return playerItem;
 	}
 
+	@Override
+	public List<PlayerItem> getSpecific(int playerId) {
+		List<PlayerItem> playerItemList = new ArrayList<>();
+		try (Session s = sf.openSession()) {
+			String hql = "from PlayerItem where PLAYER_ID =: playerId";
+			Query query = s.createQuery(hql);
+			query.setParameter("playerId", playerId);
+			playerItemList = query.getResultList();
+			return playerItemList;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+
 }
