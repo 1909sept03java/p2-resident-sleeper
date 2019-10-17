@@ -48,7 +48,7 @@ public class Driver {
 		// creating a random item in the marketplace
 		Item oblivionAndOathKeeper = new Item("Oblivion and Oathkeeper", 20, "oblivionAndOathkeeper.png");
 		System.out.println(oblivionAndOathKeeper);
-		Item diamondArmor = new Item("Diamond Armor", 15, "diamondArmor.jpg");
+		Item diamondArmor = new Item("Diamond Armor", 15, "diamondArmor.png");
 		System.out.println(diamondArmor);
 		Item diamondSword = new Item("Diamond Sword", 14, "diamondSword.jpg");
 		System.out.println(diamondSword);
@@ -65,7 +65,7 @@ public class Driver {
 		System.out.println(redBall);
 		Item earthBall = new Item("Earth Ball", 8, "earthBall.png");
 		System.out.println(earthBall);
-		Item plasmaBall = new Item("Plasma Ball", 15, "plasmaBall.png");
+		Item plasmaBall = new Item("Plasma Ball", 15, "plasmaBall.jpg");
 		System.out.println(plasmaBall);
 
 		Item whisperOfTheWyrm = new Item("Whisper of the Wyrm", 22, "whisperOfTheWyrm.jpg");
