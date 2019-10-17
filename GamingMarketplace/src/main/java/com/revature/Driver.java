@@ -48,35 +48,35 @@ public class Driver {
 		// creating a random item in the marketplace
 		Item oblivionAndOathKeeper = new Item("Oblivion and Oathkeeper", 20, "oblivionAndOathkeeper.png");
 		System.out.println(oblivionAndOathKeeper);
-		Item diamondArmor = new Item("Diamond Armor", 15, "diamondArmor.png");
+		Item diamondArmor = new Item("Diamond Armor", 15, "diamondArmor.jpg");
 		System.out.println(diamondArmor);
-		Item diamondSword = new Item("Diamond Sword", 14, "diamondSword.png");
+		Item diamondSword = new Item("Diamond Sword", 14, "diamondSword.jpg");
 		System.out.println(diamondSword);
 		Item paintBrush = new Item("Paint Brush", 13, "paintBrush.png");
 		System.out.println(paintBrush);
-		Item redX = new Item("redX", 30, "redX.png");
+		Item redX = new Item("redX", 30, "redX.jpg");
 		System.out.println(redX);
 
 		Item unhappyFaceBall = new Item("Unhappy Face Ball", 9, "unhappy.png");
 		System.out.println(unhappyFaceBall);
-		Item greenBall = new Item("Green Ball", 10, "greenBall.png");
+		Item greenBall = new Item("Green Ball", 10, "greenBall.jpg");
 		System.out.println(greenBall);
-		Item redBall = new Item("Red Ball", 11, "redBall.png");
+		Item redBall = new Item("Red Ball", 11, "redBall.jpg");
 		System.out.println(redBall);
 		Item earthBall = new Item("Earth Ball", 8, "earthBall.png");
 		System.out.println(earthBall);
 		Item plasmaBall = new Item("Plasma Ball", 15, "plasmaBall.png");
 		System.out.println(plasmaBall);
 
-		Item whisperOfTheWyrm = new Item("Whisper of the Wyrm", 22, "whisperOfTheWyrm.png");
+		Item whisperOfTheWyrm = new Item("Whisper of the Wyrm", 22, "whisperOfTheWyrm.jpg");
 		System.out.println(whisperOfTheWyrm);
 		Item claw = new Item("Claw", 10, "claw.png");
 		System.out.println(claw);
-		Item helmet = new Item("Helmet", 14, "helmet.png");
+		Item helmet = new Item("Helmet", 14, "helmet.jpg");
 		System.out.println(helmet);
-		Item bat = new Item("neil's Bat", 15, "neilBat.png");
+		Item bat = new Item("neil's Bat", 15, "neilBat.jpg");
 		System.out.println(bat);
-		Item gloves = new Item("Gloves", 8, "gloves.png");
+		Item gloves = new Item("Gloves", 8, "gloves.jpg");
 		System.out.println(gloves);
 
 		// creating a random item that rex owns
