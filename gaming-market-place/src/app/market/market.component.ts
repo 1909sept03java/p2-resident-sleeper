@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../item.model';
 import { BuyserviceService } from '../buyservice.service';
 import { LoginserviceService } from '../loginservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-market',
@@ -17,19 +18,14 @@ export class MarketComponent implements OnInit {
   playerId: number;
   coins: number;
   itId: number;
-  //x = this.items.push(new Item(10, 'Cat'));
-  //x = this.items.push(new Item(11, 'Matt')) 
-  //x: {id: number, name: string }[];
-  //x = new Array(1, 4, 9);
-  //length = this.x.push([{10: number,'cat': string}]);
-  //t = this.items[1].name;
   
-  constructor(public buyservice: BuyserviceService, public loginService: LoginserviceService) { }
+  constructor(public buyservice: BuyserviceService, public loginService: LoginserviceService, public router: Router) { }
 
   buy() {
-    let itemId = this.itId - 1;
-    console.log(this.playerId)
-    this.buyservice.buyItem(this.playerId, itemId).subscribe(
+    let itemId = this.itId;
+    console.log(itemId);
+    if(this.coins > this.items[itemId].value) {
+      this.buyservice.buyItem(this.playerId, itemId).subscribe(
         (val) => {
             console.log("POST call successful value returned in body", 
                         val);
@@ -39,7 +35,14 @@ export class MarketComponent implements OnInit {
         },
         () => {
             console.log("The POST observable is now completed.");
+            alert("Purchase Successful");
+            this.router.navigateByUrl('/chest', {skipLocationChange: true}).then(()=>
+            this.router.navigate(['/market']));
+
         });
+      } else {
+          alert("Not enough funds");
+      }
   }
 
   ngOnInit() {
@@ -49,7 +52,12 @@ export class MarketComponent implements OnInit {
         length = this.items.push(new Item(data[i].itemId, data[i].name, data[i].value, this.ava + data[i].itemFilename));
         }
     });
+    this.loginService.fetchPlayerById().subscribe((data)=>{
+      this.playerInfo = data;
+      this.coins = this.playerInfo.coins;
+    });
     this.loginService.currentMessage.subscribe(message => this.playerId = parseInt(message));
+    console.log(this.items);
   }
 
 }
