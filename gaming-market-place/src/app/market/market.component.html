@@ -1,18 +1,19 @@
 <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>Market</span>
+                <span>Market</span>
                 <span class="example-fill-remaining-space"></span>
                 <span class="align-center"></span>
                 <span class="example-spacer"></span>
                 <button mat-button id="myButton" routerLink='/login'>Log Out</button>
         </mat-toolbar-row>
-    </mat-toolbar>
-    <nav> 
-            <button routerLink='/profile'>Home</button>
-            <button routerLink='/game'>Game</button>
-            <button routerLink='/market'>Market</button>
-            <button routerLink='/chest'>Chest</button>
-    </nav>
+</mat-toolbar>
+<nav>
+        <button routerLink='/profile'>Home</button>
+        <button routerLink='/game'>Game</button>
+        <button routerLink='/market'>Market</button>
+        <button routerLink='/chest'>Chest</button>
+</nav>
+<!--
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <h5> Balance: {{coins}} coins</h5>
         <div class="carousel-inner">
@@ -69,4 +70,33 @@
         <br>
         <br>
     </div>
-              
+-->
+
+<div class="container">
+        <div class="row text-center">
+<!--
+                <header class="jumbotron my-4">
+                        <h1 class="display-3">A Warm Welcome!</h1>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi,
+                                in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo
+                                aspernatur vitae fugiat numquam repellat.</p>
+                        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+                </header>
+-->
+                <div class="col-lg-3 col-md-6 mb-4" *ngFor="let item of items; let i = index">
+                        <div class="card h-100">
+                                <div></div>
+                                <img class="img-fluid img-thumbnail" src={{item.itemFilename}} alt="">
+                                <div class="card-body">
+                                        <h4 class="card-title">{{item.name}}</h4>
+                                        <h6> Price: {{item.value}} coins</h6>
+                                </div>
+                                <div class="card-footer">
+                                        <a class="btn btn-primary" (click)="buy(item.index)">Buy</a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <!-- /.row -->
+
+</div>

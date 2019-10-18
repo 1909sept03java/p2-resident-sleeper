@@ -23,8 +23,8 @@ export class ProfileComponent implements OnInit {
   itId: number;
   constructor(public loginService: LoginserviceService, public router: Router) { }
 
-  changeAvatar() {
-    let itemId = this.itId - 1;
+  changeAvatar(temp: number) {
+    let itemId = temp;
     let itemFilename = this.myItems[itemId].itemFilename;
     var splitted = itemFilename.split("/", 4);
     this.loginService.changeAva(parseInt(this.pId), splitted[3]).subscribe(
@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
     this.loginService.fetchAllItems().subscribe((data)=>{
       let dLen: number = Object.keys(data).length;
       for (let i = 0; i < dLen; i ++) {
-        length = this.myItems.push(new myItems(data[i].item.itemId, data[i].item.name, this. ava + data[i].item.itemFilename));
+        length = this.myItems.push(new myItems(data[i].item.itemId, data[i].item.name, this. ava + data[i].item.itemFilename,i));
       }
     });
   }

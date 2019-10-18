@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class MarketComponent implements OnInit {
 
   items: Item[] = [];
+  num: number[] = [];
   length: number = 0;
   ava: string = '/assets/images/';
   playerInfo: any;
@@ -21,8 +22,8 @@ export class MarketComponent implements OnInit {
   
   constructor(public buyservice: BuyserviceService, public loginService: LoginserviceService, public router: Router) { }
 
-  buy() {
-    let itemId = this.itId;
+  buy(temp : number) {
+    let itemId = temp+1;
     console.log(itemId);
     if(this.coins > this.items[itemId].value) {
       this.buyservice.buyItem(this.playerId, itemId).subscribe(
@@ -49,9 +50,10 @@ export class MarketComponent implements OnInit {
     this.buyservice.fetchItems().subscribe((data)=>{
       let dLen: number = Object.keys(data).length;
       for (let i = 0; i < dLen; i ++) {
-        length = this.items.push(new Item(data[i].itemId, data[i].name, data[i].value, this.ava + data[i].itemFilename));
+        length = this.items.push(new Item(data[i].itemId, data[i].name, data[i].value, this.ava + data[i].itemFilename, i));
         }
     });
+    console.log(this.items);
     this.loginService.fetchPlayerById().subscribe((data)=>{
       this.playerInfo = data;
       this.coins = this.playerInfo.coins;
