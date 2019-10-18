@@ -26,6 +26,7 @@
         <br>
      </mat-card-content>   
   </mat-card>
+  <!--
     <div id="myTable">
         <table class="table table-striped table-dark">
             <thead>
@@ -51,3 +52,33 @@
         <br>
         <br>
     </div>
+-->
+
+
+<div class="container">
+        <div class="row text-center">
+<!--
+                <header class="jumbotron my-4">
+                        <h1 class="display-3">A Warm Welcome!</h1>
+                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi,
+                                in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo
+                                aspernatur vitae fugiat numquam repellat.</p>
+                        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+                </header>
+-->
+                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let myItem of myItems; let i = index">
+                        <div class="card h-100">
+                                <div></div>
+                                <img class="img-fluid img-thumbnail" src={{myItem.itemFilename}} alt="">
+                                <div class="card-body">
+                                        <h4 class="card-title">{{myItem.name}}</h4>
+                                </div>
+                                <div class="card-footer">
+                                    <button mat-raised-button class="color" (click)="changeAvatar(myItem.index)">Click me!</button>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <!-- /.row -->
+
+</div>
