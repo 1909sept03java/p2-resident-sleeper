@@ -1,34 +1,56 @@
 package com.revature.controller;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.revature.OrmConfiguration;
+import com.revature.model.Player;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = OrmConfiguration.class)
 public class PlayerControllerTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	
+	private PlayerController playerController;
+	
+	private Player player;
+	
+	//private ResponseEntity<Player>;
+	
+	@Autowired
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+	
+	@Autowired
+	public void setPlayerController(PlayerController playerController) {
+		this.playerController = playerController;
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		//setup expected player
+		player.setplayerId(1);
+		player.setFirstname("rex");
+		player.setLastname("cruz");
+		player.setEmail("rex@example.com");
+		player.setCoins(100);
+		player.setAvatarFilename("helmet.jpg");
+		player.setMinutes(0);
+		System.out.println(player);	
+		
+		assertThat(playerController, instanceOf(PlayerController.class));
+		//fail("Not yet implemented");
 	}
 
 }

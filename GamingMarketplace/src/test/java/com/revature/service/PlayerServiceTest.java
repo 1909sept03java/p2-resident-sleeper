@@ -8,13 +8,19 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.revature.OrmConfiguration;
 import com.revature.dao.PlayerDAO;
 import com.revature.model.Player;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = OrmConfiguration.class)
 public class PlayerServiceTest {
 
 	private Player player;
@@ -40,17 +46,17 @@ public class PlayerServiceTest {
 	@Test
 	public void test() {
 		
-		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-		//System.out.println("PlayerService is : "+playerService+" instance of: "+instanceOf(PlayerService.class));
-		//assertThat(playerService, instanceOf(PlayerService.class));
-		PlayerService playerService2 = (PlayerService) ac.getBean("PlayerService");
-		System.out.println("PlayerService is : "+playerService2+" instance of: "+instanceOf(PlayerService.class));
-		//player = new Player(1, "rex", "cruz", "rex@example", "rex.png", 100, 0);
-		//System.out.println("Player is : "+player+" instance of: "+instanceOf(Player.class));
-		//assertThat(player, instanceOf(Player.class));
-		//assertEquals(player, playerService2.getPlayerById(1));
+		//setup expected player
+		player.setplayerId(1);
+		player.setFirstname("rex");
+		player.setLastname("cruz");
+		player.setEmail("rex@example.com");
+		player.setCoins(100);
+		player.setAvatarFilename("helmet.jpg");
+		player.setMinutes(0);
+		System.out.println(player);			
+		assertEquals(player, playerService.getPlayerById(1));
 		//fail("Not yet implemented");
-		ac.close();
 	}
 
 }
