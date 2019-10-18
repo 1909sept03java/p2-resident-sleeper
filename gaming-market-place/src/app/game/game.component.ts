@@ -276,7 +276,6 @@ export class GameComponent implements OnInit {
 
   ngOnDestroy() {
     this.coinservice.addCoins(this.playerId, this.totalScore).subscribe((data)=>{
-      this.playerInfo = data;
     });
   }
 
