@@ -23,7 +23,7 @@ export class MarketComponent implements OnInit {
   constructor(public buyservice: BuyserviceService, public loginService: LoginserviceService, public router: Router) { }
 
   buy(temp : number) {
-    let itemId = temp;
+    let itemId = temp+1;
     console.log(itemId);
     if(this.coins > this.items[itemId].value) {
       this.buyservice.buyItem(this.playerId, itemId).subscribe(
