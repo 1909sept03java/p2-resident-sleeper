@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.Avatar;
 import com.revature.model.BoughtItem;
+import com.revature.model.Coin;
 import com.revature.model.Player;
 import com.revature.service.PlayerService;
 
@@ -83,7 +84,9 @@ public class PlayerController {
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/balanceafterlogout", method = RequestMethod.POST)
-	public ResponseEntity<Boolean> balanceAfterLogout(@RequestParam int playerId, int coins) {
+	public ResponseEntity<Boolean> balanceAfterLogout(@RequestBody Coin coin) {
+		int playerId = coin.getPlayerId();
+		int coins = coin.getCoins();
 		if(this.playerService.balanceAfterLogout(playerId, coins))
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);

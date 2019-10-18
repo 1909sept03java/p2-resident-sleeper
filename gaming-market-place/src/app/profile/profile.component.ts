@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
     let itemId = this.itId - 1;
     let itemFilename = this.myItems[itemId].itemFilename;
     var splitted = itemFilename.split("/", 4);
-    console.log(splitted);
     this.loginService.changeAva(parseInt(this.pId), splitted[3]).subscribe(
         (val) => {
             console.log("POST call successful value returned in body", 
@@ -56,7 +55,6 @@ export class ProfileComponent implements OnInit {
     });
     this.loginService.fetchAllItems().subscribe((data)=>{
       let dLen: number = Object.keys(data).length;
-      console.log(data[0].item.name);
       for (let i = 0; i < dLen; i ++) {
         length = this.myItems.push(new myItems(data[i].item.itemId, data[i].item.name, this. ava + data[i].item.itemFilename));
       }

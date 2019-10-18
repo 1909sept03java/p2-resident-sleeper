@@ -57,7 +57,6 @@ export class MarketComponent implements OnInit {
       this.coins = this.playerInfo.coins;
     });
     this.loginService.currentMessage.subscribe(message => this.playerId = parseInt(message));
-    console.log(this.items);
   }
 
 }
