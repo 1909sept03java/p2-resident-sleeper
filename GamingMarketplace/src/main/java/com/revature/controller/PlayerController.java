@@ -96,5 +96,14 @@ public class PlayerController {
     public ResponseEntity handle() {
         return new ResponseEntity(HttpStatus.OK);
     }
+    //updateAfterSell(int playerId, int activityId)
+    @ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/updateaftersell", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> updateAfterSell(@RequestParam int playerItemId) {
+    	if(this.playerService.updateAfterSell(playerItemId))
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+    }
+
 
 }

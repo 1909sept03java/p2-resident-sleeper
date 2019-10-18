@@ -69,5 +69,10 @@ public class PlayerService {
 	public boolean balanceAfterLogout(int playerId, int coins) {
 		return this.playerDAO.balanceAfterLogout(playerId, coins);
 	}
+	//.
+	//this will update the balance and also update the PlayerItem and Activity table
+	public boolean updateAfterSell(int activityId) {
+		return this.playerDAO.updateAfterSell(activityId);
+	}
 }
 
