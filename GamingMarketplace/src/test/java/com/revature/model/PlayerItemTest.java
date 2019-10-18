@@ -7,28 +7,38 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PlayerItemTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+	private Item item;
+	
+	private PlayerItem playerItem;
+	
+	private Player player;
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	@Autowired
+	public void setItem(Item item) {
+		this.item = item;
 	}
-
-	@Before
-	public void setUp() throws Exception {
+	
+	@Autowired
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
-
-	@After
-	public void tearDown() throws Exception {
+	@Autowired
+	public void setPlayerItem(PlayerItem playerItem) {
+		this.playerItem = playerItem;
 	}
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		player = new Player(1, "rex", "cruz", "rex@example", "rex.png", 100, 0);
+		item = new Item(3, "Diamond Armor", 15, "diamondArmor.png");
+		System.out.println(player);
+		playerItem = new PlayerItem(1, false, item, player);
+		assertNotEquals(playerItem, null); // success
+		//fail("Not yet implemented");
 	}
 
 }

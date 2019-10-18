@@ -7,28 +7,30 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CredentialTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	private Credential credential;
+	
+	@Autowired
+	public void setCredential(Credential credential) {
+		this.credential = credential;
 	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
+	
+	private Player player;
+	
+	@Autowired
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		player = new Player(1, "rex", "cruz", "rex@example", "rex.png", 100, 0);
+		credential = new Credential(1, "rex13", "rexpass", player);
+		
+		//fail("Not yet implemented");
 	}
 
 }
