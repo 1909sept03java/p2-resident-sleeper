@@ -28,3 +28,28 @@
         <br>
      </mat-card-content>   
   </mat-card>
+    <div id="myTable">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Avatar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let myItem of myItems; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{myItem.name}}</td>
+                    <td><img src={{myItem.itemFilename}}></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="changeAva">
+        <h6>Enter the number of the Item you would like to make your new Avatar:</h6>
+        <input type="text" [(ngModel)]="itId">
+        <input type="submit" (click)="changeAvatar()">
+        <br>
+        <br>
+    </div>

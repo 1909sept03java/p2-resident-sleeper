@@ -40,7 +40,9 @@ const appRoutes: Routes = [
     CustomMaterialModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {
+      onSameUrlNavigation: 'reload'
+    })
   ],
   providers: [LoginserviceService, LoginComponent, BuyserviceService],
   bootstrap: [AppComponent]

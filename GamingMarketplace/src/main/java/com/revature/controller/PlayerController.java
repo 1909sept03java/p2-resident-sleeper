@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.model.Avatar;
 import com.revature.model.BoughtItem;
 import com.revature.model.Player;
 import com.revature.service.PlayerService;
@@ -38,7 +39,9 @@ public class PlayerController {
 
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/updateavatar", method = RequestMethod.POST)
-	public ResponseEntity<Player> updateAvatar(@RequestParam int playerId, String avatarFilename) {
+	public ResponseEntity<Player> updateAvatar(@RequestBody Avatar avatar) {
+		int playerId = (int) avatar.getPlayerId();
+		String avatarFilename = avatar.getItemFilename();
 		this.playerService.updateAvatar(playerId, avatarFilename);
 		return new ResponseEntity<>(this.playerService.getPlayerById(playerId), HttpStatus.OK);
 	}

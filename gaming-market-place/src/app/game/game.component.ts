@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CONTROLS, COLORS, BOARD_SIZE, GAME_MODES } from './game.constants';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
+  encapsulation: ViewEncapsulation.Native,
   styleUrls: ['./game.component.css'],
   host: {
     '(document:keydown)': 'handleKeyboardEvents($event)'

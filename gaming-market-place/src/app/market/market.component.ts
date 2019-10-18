@@ -46,7 +46,7 @@ export class MarketComponent implements OnInit {
     this.buyservice.fetchItems().subscribe((data)=>{
       let dLen: number = Object.keys(data).length;
       for (let i = 0; i < dLen; i ++) {
-        length = this.items.push(new Item(data[i].itemId, data[i].name, data[i].value, this.ava + data[i].itemFilename))
+        length = this.items.push(new Item(data[i].itemId, data[i].name, data[i].value, this.ava + data[i].itemFilename));
         }
     });
     this.loginService.currentMessage.subscribe(message => this.playerId = parseInt(message));
