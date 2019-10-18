@@ -12,6 +12,14 @@
 * [Sudipta Saha](https://github.com/1909sept03java/sudipta-saha "The Right Hand")
 * [Tomi Adegbenro](https://github.com/1909sept03java/tomi-adegbenro "The Back")
 
+## Running it
+* Import GamingMarketplace as a Maven Project into Eclipse
+* Place it within a Tomcat 9 Server and run it
+* Using Git Bash, cd into gaming-market-place
+* follow then Angular Application Setup below then come back to these instructions
+* ng serve --open within gaming-market-place
+* congrats
+
 ## Angular Application Setup
 
 * cd into p2-resident-sleeper/gaming-market-place/
