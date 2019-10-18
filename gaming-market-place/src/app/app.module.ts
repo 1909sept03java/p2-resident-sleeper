@@ -15,6 +15,7 @@ import { MarketComponent } from './market/market.component';
 import { ChestComponent } from './chest/chest.component';
 import { BuyserviceService } from './buyservice.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignupserviceService } from './signupservice.service';
 //import { BestScoreManager } from './game/game.storage.service';
 
 const appRoutes: Routes = [
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
       onSameUrlNavigation: 'reload'
     })
   ],
-  providers: [LoginserviceService, LoginComponent, BuyserviceService],
+  providers: [LoginserviceService, LoginComponent, BuyserviceService, SignupserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

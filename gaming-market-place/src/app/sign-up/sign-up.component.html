@@ -1,24 +1,13 @@
-<form action="localhost:8082/GamingMarketplace/signup/createPlayer" method="post">
-    <input type="text" name="playerId" value="-1" id="" hidden="true">
+<form>
+    <input type="text" [(ngModel)]="email" name="email" placeholder="email" id="email">
     <br>
-    <input type="text" name="email" placeholder="email" id="">
+    <input type="text" [(ngModel)]="firstname" name="firstname" placeholder="firstname" id="firstname">
     <br>
-    <input type="text" name="firstname" placeholder="firstname" id="">
+    <input type="text" [(ngModel)]="lastname" name="lastname" placeholder="lastname" id="lastname">
     <br>
-    <input type="text" name="lastname" placeholder="lastname" id="">
+    <input type="text" [(ngModel)]="username" name="username" placeholder="username" id="username">
     <br>
-    <input type="text" name="avatarFilename" value="helment.png" id="" hidden="true">
-    <input type="text" name="coins" value="100" id="" hidden="true">
-    <input type="text" name="minutes" value="0" id="" hidden="true">
-    <button type="submit">submit</button>
-</form>
-<br>
-<form action="localhost:8082/GamingMarketplace/signup/createCredential" method="post">
-    <input type="text" name="credentialId" id="-1" hidden="true">
+    <input type="password" [(ngModel)]="password" name="password" placeholder="password" id="password">
     <br>
-    <input type="text" name="username" placeholder="username" id="">
-    <br>
-    <input type="password" name="password" placeholder="password" id="">
-    <br>
-    <button type="submit">submit</button>
+    <button type="submit" (click)="signup()">submit</button>
 </form>
