@@ -1,0 +1,30 @@
+.example-card {
+    width: 50%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    background:white;
+    opacity: 0.7;
+}
+mat-card-header {
+    justify-content: center;
+}
+span {
+    font-family: Impact, fantasy;
+    font-size: 30px;
+    color:#ff3300;
+    text-shadow: 2px 2px orange;
+
+}
+.example-full-width {
+    margin-right: auto;
+    margin-left: auto;
+}
+mat-toolbar-row{
+    justify-content: center; 
+    background: black;   
+}
+#myButton {
+    background-color: black;
+    color:white;
+}
