@@ -26,7 +26,7 @@ public interface PlayerItemDAO {
 	public boolean deletePlayerItem(PlayerItem playerItem);
 	
 	//this will return the list of the items owned by a player
-	public List<PlayerItem> getSpecific(int playerId);
+	public List<PlayerItem> getSpecific(int playerItemId);
 	
 }
 

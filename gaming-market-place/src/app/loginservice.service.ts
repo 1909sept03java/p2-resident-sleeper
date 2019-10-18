@@ -18,6 +18,8 @@ export class LoginserviceService {
   endpoint = 'http://localhost:8082/GamingMarketplace/credential/all';
   allpoint = 'http://localhost:8082/GamingMarketplace//playerItem/getspecific?playerId=';
   updatepoint = 'http://localhost:8082/GamingMarketplace/player/updateavatar';
+  allplayeritem = 'http://localhost:8082/GamingMarketplace/playerItem/all';
+  updatesell = 'http://localhost:8082/GamingMarketplace/player/updateaftersell';
 
   private messageSource = new BehaviorSubject('-1');
   currentMessage = this.messageSource.asObservable();
@@ -33,6 +35,11 @@ export class LoginserviceService {
 
   }
 
+  public fetchallplayeritem() {
+    return this.httpClient.get(this.allplayeritem);
+
+  }
+
   public fetchPlayerById() {
     let id: string;
     this.currentMessage.subscribe(message => id = message);
@@ -45,6 +52,11 @@ export class LoginserviceService {
     this.currentMessage.subscribe(message => id = message);
     let itemUrl = this.allpoint + id;
     return this.httpClient.get(itemUrl);
+  }
+
+  public seelUpdate(playerItemId: number){
+    console.log(playerItemId);
+    return this.httpClient.post(this.updatesell+'?playerItemId='+playerItemId,this.httpOptions);
   }
 
   public changeAva(playerId: number, itemFilename: string) {
