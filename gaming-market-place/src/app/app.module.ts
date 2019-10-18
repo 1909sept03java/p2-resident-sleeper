@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarketComponent } from './market/market.component';
 import { ChestComponent } from './chest/chest.component';
 import { BuyserviceService } from './buyservice.service';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignupserviceService } from './signupservice.service';
 //import { BestScoreManager } from './game/game.storage.service';
 
 const appRoutes: Routes = [
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
   { path: 'game',      component: GameComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'market', component: MarketComponent },
-  { path: 'chest', component: ChestComponent }
+  { path: 'chest', component: ChestComponent },
+  { path: 'signup', component: SignUpComponent}
 ];
 
 @NgModule({
@@ -32,7 +35,8 @@ const appRoutes: Routes = [
     GameComponent,
     ProfileComponent,
     MarketComponent,
-    ChestComponent
+    ChestComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,11 @@ const appRoutes: Routes = [
     CustomMaterialModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {
+      onSameUrlNavigation: 'reload'
+    })
   ],
-  providers: [LoginserviceService, LoginComponent, BuyserviceService],
+  providers: [LoginserviceService, LoginComponent, BuyserviceService, SignupserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

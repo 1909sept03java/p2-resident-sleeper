@@ -138,11 +138,11 @@
     opacity: 0.7;
     color:white;
 }
-span {
-    font-family: Impact, fantasy;
-    font-size: 30px;
-    color:rgb(32, 90, 117);
-    text-shadow: 2px 2px #4190B5;
+#mySpan {
+  font-family: Impact, fantasy;
+  font-size: 30px;
+  color:rgb(32, 90, 117);
+  text-shadow: 2px 2px #4190B5;
 }
 mat-card-header {
     justify-content: center;
@@ -159,6 +159,9 @@ mat-toolbar-row{
     position: absolute;
     right: 0;
     top: 0;
+    background-color: black;
+    color: white;
+    font-size: 15px;
 }
 nav {
     background: black;

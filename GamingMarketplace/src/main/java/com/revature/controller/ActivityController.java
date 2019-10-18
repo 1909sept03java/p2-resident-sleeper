@@ -16,14 +16,14 @@ import com.revature.service.ActivityService;
 @Controller
 @RequestMapping(value = "/activity")
 public class ActivityController {
-	
+
 	private ActivityService activityService;
-	
+
 	@Autowired // setter injection
 	public void setActivityService(ActivityService activityService) {
 		this.activityService = activityService;
 	}
-	
+
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<Activity>> getAll() {

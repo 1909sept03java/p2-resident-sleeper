@@ -32,7 +32,7 @@ public class PlayerItemController {
 	}
 	
 	@ResponseBody // tells spring to skip ViewResolver
-	@RequestMapping(value = "/getspecific", method = RequestMethod.POST)
+	@RequestMapping(value = "/getspecific", method = RequestMethod.GET)
 	public ResponseEntity<List<PlayerItem>> getSpecific(@RequestParam int playerId) {
 		return new ResponseEntity<>(this.playerItemService.getSpecific(playerId), HttpStatus.OK);
 	}

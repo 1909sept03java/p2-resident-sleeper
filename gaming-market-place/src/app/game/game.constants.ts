@@ -1,10 +1,10 @@
 export const BOARD_SIZE = 18; // size of the board
 
 export const CONTROLS = { // buttons for controlling snake movement
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40
+  LEFT: 65,
+  UP: 87,
+  RIGHT: 68,
+  DOWN: 83
 };
 
 export const COLORS = { // colors of the game.

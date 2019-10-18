@@ -1,34 +1,32 @@
 package com.revature.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.revature.OrmConfiguration;
+import com.revature.model.Credential;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = OrmConfiguration.class)
 public class CredentialServiceTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	private Credential cred;
+	
+	@Autowired
+	public void setCredential(Credential cred) {
+		this.cred = cred;
 	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		System.out.println(cred);
+		//fail("Not yet implemented");
 	}
 
 }

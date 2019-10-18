@@ -14,7 +14,7 @@
 	 http://www.springframework.org/schema/mvc 
 	 http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 	 http://www.springframework.org/schema/aop
-	 http://www.springframework.org/schema/aop/spring-aop.xsd">
+	 http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<context:component-scan
 		base-package="com.revature" />
@@ -24,9 +24,9 @@
 
 	<!-- enable MVC annotations -->
 	<mvc:annotation-driven />
-	
+
 	<!-- enable AOP annotations -->
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy /> 
 
 	<!-- enable mapping of static resources <mvc:resources location="/WEB-INF/static/" 
 		mapping="/resources/**"></mvc:resources> -->

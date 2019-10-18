@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CONTROLS, COLORS, BOARD_SIZE, GAME_MODES } from './game.constants';
+import { LoginserviceService } from '../loginservice.service';
+import { CoinserviceService } from '../coinservice.service';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
+  encapsulation: ViewEncapsulation.Native,
   styleUrls: ['./game.component.css'],
   host: {
     '(document:keydown)': 'handleKeyboardEvents($event)'
@@ -20,8 +23,11 @@ export class GameComponent implements OnInit {
   public board = [];
   public obstacles = [];
   public score = 0;
+  public totalScore = 0;
   public showMenuChecker = false;
   public gameStarted = false;
+  public coin: number;
+  public playerId: number;
 
   private snake = { // initial positon 
     direction: CONTROLS.LEFT,
@@ -38,7 +44,7 @@ export class GameComponent implements OnInit {
     y: -1
   };
 
-  constructor() {
+  constructor(public coinservice: CoinserviceService, public loginService: LoginserviceService) {
     this.setBoard();
   }
 
@@ -207,6 +213,7 @@ export class GameComponent implements OnInit {
     this.isGameOver = true;
     this.gameStarted = false;
     let me = this;
+    this.totalScore = this.totalScore + this.score;
 
     setTimeout(() => {
       me.isGameOver = false;
@@ -264,6 +271,12 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginService.currentMessage.subscribe(message => this.playerId = parseInt(message));
+  }
+
+  ngOnDestroy() {
+    this.coinservice.addCoins(this.playerId, this.totalScore).subscribe((data)=>{
+    });
   }
 
   

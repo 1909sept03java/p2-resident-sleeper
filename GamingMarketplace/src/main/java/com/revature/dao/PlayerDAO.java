@@ -35,5 +35,5 @@ public interface PlayerDAO {
 	public boolean balanceAfterLogout(int playerId, int coins);
 	//.
 	//this will update the balance and also update the PlayerItem and Activity table
-	public boolean updateAfterSell(int playerId, int itemId);
+	public boolean updateAfterSell(int activityId);
 }

@@ -1,34 +1,25 @@
 package com.revature.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class PlayerTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
+	
+	private Player player;
+	
+	@Autowired
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		player = new Player(1, "rex", "cruz", "rex@example", "rex.png", 100, 0);
+		System.out.println(player);
+		assertNotEquals(player, null); // success
 	}
 
 }

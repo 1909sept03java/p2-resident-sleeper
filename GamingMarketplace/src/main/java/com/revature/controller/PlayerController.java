@@ -6,17 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.model.Avatar;
+import com.revature.model.BoughtItem;
+import com.revature.model.Coin;
 import com.revature.model.Player;
 import com.revature.service.PlayerService;
 
 @Controller
 @RequestMapping(value = "/player")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class PlayerController {
 
 	private PlayerService playerService;
@@ -32,11 +38,11 @@ public class PlayerController {
 		return new ResponseEntity<>(this.playerService.getAll(), HttpStatus.OK);
 	}
 
-	//.
-	//this will update the avatar of the user
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/updateavatar", method = RequestMethod.POST)
-	public ResponseEntity<Player> updateAvatar(@RequestParam int playerId, String avatarFilename) {
+	public ResponseEntity<Player> updateAvatar(@RequestBody Avatar avatar) {
+		int playerId = (int) avatar.getPlayerId();
+		String avatarFilename = avatar.getItemFilename();
 		this.playerService.updateAvatar(playerId, avatarFilename);
 		return new ResponseEntity<>(this.playerService.getPlayerById(playerId), HttpStatus.OK);
 	}
@@ -66,7 +72,9 @@ public class PlayerController {
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/deductbalance", method = RequestMethod.POST)
-	public ResponseEntity<Boolean> deductBalance(@RequestParam int playerId, int itemId) {
+	public ResponseEntity<Boolean> deductBalance(@RequestBody BoughtItem boughtItem) {
+		int playerId = (int) boughtItem.getPlayerId();
+		int itemId = (int) boughtItem.getItemId();
 		if(this.playerService.deductBalance(playerId, itemId))
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);
@@ -76,10 +84,26 @@ public class PlayerController {
 	//this will deduct the balance and also update the PlayerItem and Activity table
 	@ResponseBody // tells spring to skip ViewResolver
 	@RequestMapping(value = "/balanceafterlogout", method = RequestMethod.POST)
-	public ResponseEntity<Boolean> balanceAfterLogout(@RequestParam int playerId, int coins) {
+	public ResponseEntity<Boolean> balanceAfterLogout(@RequestBody Coin coin) {
+		int playerId = coin.getPlayerId();
+		int coins = coin.getCoins();
 		if(this.playerService.balanceAfterLogout(playerId, coins))
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else return new ResponseEntity<>(false, HttpStatus.OK);
 	}
+	
+    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+    public ResponseEntity handle() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+    //updateAfterSell(int playerId, int activityId)
+    @ResponseBody // tells spring to skip ViewResolver
+	@RequestMapping(value = "/updateaftersell", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> updateAfterSell(@RequestParam int playerItemId) {
+    	if(this.playerService.updateAfterSell(playerItemId))
+			return new ResponseEntity<>(true, HttpStatus.OK);
+		else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+    }
+
 
 }

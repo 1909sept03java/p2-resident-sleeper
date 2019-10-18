@@ -190,36 +190,31 @@ public class PlayerDAOImpl implements PlayerDAO {
 	}
 
 	@Override
-	public boolean updateAfterSell(int playerId, int itemId) {
-		Player player = null;
-		Item item = null;
+	public boolean updateAfterSell(int playerItemId) {
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			player = s.get(Player.class, playerId);
-			item = s.get(Item.class, itemId);
+			PlayerItem playerItem = s.get(PlayerItem.class, playerItemId);
+			Player player = playerItem.getPlayer();
+			Item item =  playerItem.getItem();
+			System.out.println(playerItem);
+			System.out.println(player);
+			System.out.println(item);
+			//Player player = s.get(Player.class, playerId);
 			String hql = "Update Player Set COINS =: coins Where PLAYER_ID =: playerId";
 			Query query = s.createQuery(hql);
-			query.setParameter("playerId", playerId);
+			query.setParameter("playerId", player.getplayerId());
 			query.setParameter("coins", (player.getCoins()+item.getValue()));
 			query.executeUpdate();
-			PlayerItem playerItem  = new PlayerItem();
-			playerItem.setItem(item);
-			playerItem.setForSale(true);
-			//playerItem.setItemFilename(item.getItemFilename());
-			//playerItem.setName(item.getName());
-			playerItem.setPlayer(player);
-			//playerItem.setValue(item.getValue());
-			s.save(playerItem);
-			Activity activity = new Activity();
-			activity.setItem(item);
-			activity.setPlayer(player);
-			activity.setType("Bought");
-			s.save(activity);
+			hql = "Delete from PlayerItem Where PLAYER_ITEM_ID =: playerItemId";
+			query = s.createQuery(hql);
+			query.setParameter("playerItemId", playerItemId);
+			query.executeUpdate();
 			tx.commit();
 			s.close();
 			return true;
 
 		}catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
