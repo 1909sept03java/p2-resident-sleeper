@@ -36,7 +36,7 @@ export class ChestComponent implements OnInit {
         },
         () => {
             console.log("The POST observable is now completed.");
-            alert("Purchase Successful");
+            alert("Sell Successful");
             this.router.navigateByUrl('/market', {skipLocationChange: true}).then(()=>
             this.router.navigate(['/chest']));
 
@@ -60,7 +60,7 @@ export class ChestComponent implements OnInit {
       for (let i = 0; i < dLen; i ++) {
         console.log(data[i].player.playerId);
         if(data[i].player.playerId == this.pId){
-          length = this.myItems.push(new myItems(data[i].playerItemId, data[i].item.name, this. ava + data[i].item.itemFilename));
+          length = this.myItems.push(new myItems(data[i].playerItemId, data[i].item.name, this. ava + data[i].item.itemFilename,i));
         }
         
       }
