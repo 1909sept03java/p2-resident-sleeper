@@ -81,14 +81,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-test</artifactId>
-		    <version>5.2.0.RELEASE</version>
-		    <scope>test</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>5.2.0.RELEASE</version>
+			<scope>test</scope>
 		</dependency>
-        
 	</dependencies>
 
 </project>
