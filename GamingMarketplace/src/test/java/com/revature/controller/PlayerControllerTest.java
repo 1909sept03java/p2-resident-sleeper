@@ -33,10 +33,6 @@ public class PlayerControllerTest {
 		this.playerController = playerController;
 	}
 
-	
-
-	
-
 	@Test
 	public void test() {
 		//setup expected player
